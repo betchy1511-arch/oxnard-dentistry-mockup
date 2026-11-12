@@ -129,8 +129,8 @@ section{scroll-margin-top:100px}
 .choice[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-soft)}
 .answer{margin-top:16px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px 32px;background:var(--deep);color:#E8F1EF;border-radius:20px;padding:24px 28px}
 .answer-acts{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.answer .ans-call{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
-.answer .ans-call:hover{background:#fff;color:var(--deep)}
+.answer .btn-small.ans-call{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.answer .btn-small.ans-call:hover{background:#fff;color:var(--deep)}
 @media (max-width:1100px){.answer{grid-template-columns:1fr}.answer-acts{justify-content:flex-start}}
 .answer p{max-width:620px;font-size:17px;line-height:1.5}
 .answer .btn-small{background:#fff;border-color:#fff;color:var(--deep)}
@@ -379,7 +379,7 @@ header.site.scrolled .nav-pill .brand{background:transparent}
 .rvx-more{align-self:flex-start;background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.25);position:relative}
 .rvx-more:hover{background:#fff;color:var(--deep)}
 .rvx-stage{background:var(--soft);border:1px solid var(--line);border-radius:var(--r-md);padding:48px 48px 28px;display:flex;flex-direction:column;position:relative;overflow:hidden}
-.rvx-mark{width:84px;height:63px;fill:var(--teal);opacity:.16;position:absolute;top:30px;right:40px}
+.rvx-mark{width:64px;height:48px;fill:var(--teal);opacity:.22;position:relative;margin-bottom:18px;flex:none}
 .rvx-slides{flex:1;display:grid;align-items:center;min-height:250px}
 .rvx-q{margin:0}
 .rvx-q blockquote{margin:0 0 26px;font-size:clamp(22px,2.2vw,30px);line-height:1.35;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
@@ -390,7 +390,7 @@ header.site.scrolled .nav-pill .brand{background:transparent}
 @keyframes rvxW{to{opacity:1;transform:none;filter:none}}
 .rvx-q.is-on figcaption{animation:rvxW .6s cubic-bezier(.2,.7,.2,1) .35s both}
 .rvx-tabs{display:none}.js .rvx-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
-.rvx-tab{position:relative;overflow:hidden;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;border:1px solid var(--line);background:#fff;font:inherit;font-size:14px;font-weight:600;color:var(--ink2);cursor:pointer;transition:border-color .3s,color .3s}
+.rvx-tab{position:relative;overflow:hidden;display:flex;align-items:center;gap:10px;padding:8px 16px 8px 8px;border-radius:999px;border:1.5px solid #B9CFCB;background:#fff;font:inherit;font-size:14px;font-weight:600;color:var(--ink2);cursor:pointer;transition:border-color .3s,color .3s}
 .rvx-tab .av{width:30px;height:30px;font-size:13px}
 .rvx-tab[aria-pressed="true"]{border-color:var(--teal);color:var(--ink)}
 .rvx-bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--teal);transform:scaleX(0);transform-origin:left}
@@ -410,8 +410,9 @@ header.site.scrolled .nav-pill .brand{background:transparent}
 .lab-frame{position:relative;min-height:520px;border-radius:24px;overflow:hidden;background:#061a1d;box-shadow:0 30px 80px rgba(0,0,0,.35),inset 0 0 0 1px rgba(143,214,200,.18)}
 .lab-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .lab-frame.contain img{object-fit:cover;object-position:50% 40%;background:#fff}
+.lab-frame.contain .lab-lens{background-color:#fff}
 .lab-base{filter:grayscale(1) brightness(.3) contrast(1.2)}
-.lab-lit{clip-path:inset(0 0 100% 0)}
+.js .lab-lit{clip-path:inset(0 0 100% 0)}
 .lab-frame.run .lab-lit{animation:labReveal 2.8s cubic-bezier(.65,0,.35,1) .2s forwards}
 .lab-frame.done .lab-lit{clip-path:inset(0 0 0 0)}
 @keyframes labReveal{to{clip-path:inset(0 0 0 0)}}
@@ -462,6 +463,35 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
 @media (max-width:900px){.rvx-grid,.lab-grid{grid-template-columns:1fr}.lab-stage{order:-1}.lab-frame{min-height:0;aspect-ratio:4/3.4}}
 @media (max-width:700px){.ins{grid-template-columns:1fr}.rvx-score,.rvx-stage{padding:28px 22px}.rvx-mark{width:56px;height:42px;top:20px;right:20px}.ins-card{padding:24px}.lab-read{margin:0 22px;font-size:12px}.lab-lens{display:none}}
 @media (prefers-reduced-motion:reduce){.lab-lit{clip-path:none!important;animation:none!important}.lab-beam{display:none}.rvx-q.is-on .w,.rvx-q.is-on figcaption{animation:none;opacity:1;transform:none;filter:none}.js .rvx .rvx-fill{width:96%;transition:none}.js #insurance .ck path{stroke-dashoffset:0}.js #insurance .ck circle{transform:none;opacity:1}}
+
+/* v5 */
+.creds-logos{list-style:none;margin:6px 0 30px;padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr) minmax(0,1.5fr);gap:12px}
+.creds-logos li:last-child img{max-height:none;width:92%}
+.creds-logos li{background:#fff;border:1px solid var(--line);border-radius:16px;height:96px;display:grid;place-items:center;padding:14px 18px;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.creds-logos li:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(13,50,54,.1)}
+.creds-logos img{max-height:56px;max-width:100%;width:auto;height:auto;object-fit:contain}
+.doc-cta{display:flex;justify-content:center}
+.btn-call{background:#fff;color:var(--deep);border:1.5px solid var(--teal)}
+.btn-call:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.btn-call:hover .bi{background:rgba(255,255,255,.18);color:#fff}
+.rvx-pp{width:42px;height:42px;border-radius:50%;border:1.5px solid #B9CFCB;background:#fff;display:grid;place-items:center;cursor:pointer;order:9;margin-left:auto}
+.rvx-pp span{width:12px;height:14px;border-left:4px solid var(--deep);border-right:4px solid var(--deep)}
+.rvx-pp[aria-pressed="true"] span{width:0;height:0;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent var(--deep);border-right:0;margin-left:3px}
+.rvx-pp:focus-visible,.rvx-tab:focus-visible,.lab-item:focus-visible{outline:3px solid var(--cta);outline-offset:3px}
+@media (max-width:700px){.creds-logos{grid-template-columns:1fr 1fr}.creds-logos li:last-child{grid-column:1/-1}.creds-logos li{height:84px}}
+@media (prefers-reduced-motion:reduce){.rvx-tab[aria-pressed="true"] .rvx-bar{animation:none}.lab-frame.done .lab-beam,.lab-dot{animation:none}.js #insurance .ck path,.js #insurance .ck circle{transition:none}.rvx-pp{display:none}}
+
+/* v5 stats */
+.stat{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:150px;padding:26px 28px}
+.stat b{font-size:44px;font-weight:700;padding-right:56px}
+.stat b .num{display:inline;font-size:inherit;color:inherit;margin:0;font-weight:inherit}
+.stat b .star{display:inline-block;font-size:17px;letter-spacing:2px;color:#FBBC04;margin:0 0 0 10px;vertical-align:middle;transform:translateY(-4px)}
+.stat .st-l{display:block;font-size:15px;color:var(--muted);margin-top:14px}
+.stat .st-ic{position:absolute;top:22px;right:22px;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--teal-soft);color:var(--teal);margin:0}
+.stat .st-ic svg{width:22px;height:22px;display:block}
+.stat .st-ic.g-ic{background:#fff;border:1px solid var(--line);box-shadow:0 4px 12px rgba(13,50,54,.08)}
+.st-g{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#4285F4,#EA4335,#FBBC04,#34A853) border-box;border:2px solid transparent}
+@media (max-width:700px){.stat{min-height:128px;padding:20px}.stat b{font-size:32px;padding-right:44px}.stat .st-ic{width:38px;height:38px;top:16px;right:16px}.stat b .star{display:block;margin:8px 0 0;transform:none;font-size:14px}}
 </style>
 </head>
 <body>
@@ -538,10 +568,10 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
 </div>
 
 <div class="stats rise">
-  <div class="stat"><b><span class="num" data-count="4.8" data-dec="1">4.8</span><span class="star" aria-hidden="true">&#9733;</span></b><span data-i18n="proof_rating">Rating on Google</span></div>
-  <div class="stat"><b><span class="num" data-count="979" data-dec="0">979</span></b><span data-i18n="st_rev">Google reviews</span></div>
-  <div class="stat"><b data-i18n="st_same_b">Same day</b><span data-i18n="st_same">Appointments for dental emergencies</span></div>
-  <div class="stat"><b data-i18n="proof_ct">3D CT</b><span data-i18n="proof_ct_sub">Scans in the office</span></div>
+  <div class="stat st-g"><span class="st-ic g-ic"><svg viewBox="0 0 48 48" width="24" height="24" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><b><span class="num" data-count="4.8" data-dec="1">4.8</span><span class="star" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span></b><span class="st-l" data-i18n="proof_rating">Rating on Google</span></div>
+  <div class="stat st-g"><span class="st-ic g-ic"><svg viewBox="0 0 48 48" width="24" height="24" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><b><span class="num" data-count="979" data-dec="0">979</span></b><span class="st-l" data-i18n="st_rev">Google reviews</span></div>
+  <div class="stat"><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><b data-i18n="st_same_b">Same day</b><span class="st-l" data-i18n="st_same">Appointments for dental emergencies</span></div>
+  <div class="stat"><span class="st-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><circle cx="12" cy="12" r="3.5"/></svg></span><b data-i18n="proof_ct">3D CT</b><span class="st-l" data-i18n="proof_ct_sub">Scans in the office</span></div>
 </div>
 
 <section class="panel rise" id="dr-keihani" aria-labelledby="doc-h">
@@ -554,8 +584,9 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
       <p data-i18n="doc_p1">Dr. Keihani completed his education at the USC School of Dentistry and worked as a general dentist in Beverly Hills before caring for patients in Oxnard.</p>
       <p data-i18n="doc_p2">He offers a full range of general, restorative and cosmetic treatment for patients from youngsters to seniors. At your visit, expect a comprehensive and gentle exam.</p>
       <p class="member" data-i18n="member">Member of</p>
-      <ul class="creds"><li>American Dental Association</li><li>California Dental Association</li><li>Los Angeles Dental Society</li></ul>
-      <a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a>
+      <ul class="creds-logos"><li><img src="img/logo-ada.png" alt="American Dental Association" width="296" height="120" loading="lazy"></li><li><img src="img/logo-cda.png" alt="California Dental Association" width="181" height="120" loading="lazy"></li><li><img src="img/logo-lads.png" alt="Los Angeles Dental Society" width="517" height="71" loading="lazy"></li></ul>
+      <div class="doc-cta">
+      <a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a></div>
     </div>
   </div>
 </section>
@@ -608,10 +639,10 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
     </div>
     <div class="rvx-stage">
       <svg class="rvx-mark" viewBox="0 0 64 48" aria-hidden="true"><path d="M0 48V28C0 12 8 2 24 0l3 7C18 10 14 16 14 24h12v24zm36 0V28c0-16 8-26 24-28l3 7c-9 3-13 9-13 17h12v24z"/></svg>
-      <div class="rvx-slides" aria-live="polite">
+      <div class="rvx-slides">
         <figure class="rvx-q is-on" id="rq0" lang="en"><blockquote>&ldquo;This dentist office is amazing! The staff is very knowledgeable, caring and helpful.&rdquo;</blockquote><figcaption><span class="av" style="background:#2E8279">F</span><span><b>Frank Woods</b><small>Google review</small></span></figcaption></figure><figure class="rvx-q" id="rq1" lang="en"><blockquote>&ldquo;Had my yearly exam and the dentist and staff are accommodating, thorough and professional.&rdquo;</blockquote><figcaption><span class="av" style="background:#C9462A">S</span><span><b>Shawn Coy</b><small>Google review</small></span></figcaption></figure><figure class="rvx-q" id="rq2" lang="es"><blockquote>&ldquo;Mi temor era siempre ir al dentista porque e tenido malas experiencias, pero cuando decidí ir a Dentistry se fueron mis miedos.&rdquo;</blockquote><figcaption><span class="av" style="background:#124247">D</span><span><b>Daisy Nava</b><small>Google review</small></span></figcaption></figure>
       </div>
-      <div class="rvx-tabs"><button type="button" class="rvx-tab" aria-controls="rq0" aria-pressed="true"><span class="av" style="background:#2E8279">F</span><span class="rvx-tn">Frank Woods</span><i class="rvx-bar" aria-hidden="true"></i></button><button type="button" class="rvx-tab" aria-controls="rq1" aria-pressed="false"><span class="av" style="background:#C9462A">S</span><span class="rvx-tn">Shawn Coy</span><i class="rvx-bar" aria-hidden="true"></i></button><button type="button" class="rvx-tab" aria-controls="rq2" aria-pressed="false"><span class="av" style="background:#124247">D</span><span class="rvx-tn">Daisy Nava</span><i class="rvx-bar" aria-hidden="true"></i></button></div>
+      <div class="rvx-tabs"><button type="button" class="rvx-pp" aria-pressed="false" aria-label="Pause reviews"><span aria-hidden="true"></span></button><button type="button" class="rvx-tab" aria-controls="rq0" aria-pressed="true"><span class="av" style="background:#2E8279">F</span><span class="rvx-tn">Frank Woods</span><i class="rvx-bar" aria-hidden="true"></i></button><button type="button" class="rvx-tab" aria-controls="rq1" aria-pressed="false"><span class="av" style="background:#C9462A">S</span><span class="rvx-tn">Shawn Coy</span><i class="rvx-bar" aria-hidden="true"></i></button><button type="button" class="rvx-tab" aria-controls="rq2" aria-pressed="false"><span class="av" style="background:#124247">D</span><span class="rvx-tn">Daisy Nava</span><i class="rvx-bar" aria-hidden="true"></i></button></div>
     </div>
   </div>
 </section>
@@ -630,13 +661,13 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
     </div>
     <div class="lab-stage">
       <div class="lab-frame contain">
-        <img class="lab-base" src="img/cbct.jpg" alt="" width="740" height="761" loading="lazy">
-        <img class="lab-lit" src="img/cbct.jpg" alt="Cone beam CT scanner beside a monitor showing a 3D scan of a jaw" width="740" height="761" loading="lazy">
+        <img class="lab-base" src="img/cbct.jpg" alt="" width="740" height="761">
+        <img class="lab-lit" src="img/cbct.jpg" alt="Cone beam CT scanner beside a monitor showing a 3D scan of a jaw" width="740" height="761">
         <span class="lab-grid-ov" aria-hidden="true"></span>
         <span class="lab-beam" aria-hidden="true"></span>
         <span class="lab-lens" aria-hidden="true"></span>
         <i class="hud tl" aria-hidden="true"></i><i class="hud tr" aria-hidden="true"></i><i class="hud bl" aria-hidden="true"></i><i class="hud br" aria-hidden="true"></i>
-        <span class="lab-read" aria-hidden="true"><b class="lab-dot"></b><span class="lab-code">SCAN 01</span><span class="lab-name" data-i18n="t1">3D Cone Beam CT Scans</span><span class="lab-pct">0%</span></span>
+        <span class="lab-read" aria-hidden="true"><b class="lab-dot"></b><span class="lab-code">01 / 03</span><span class="lab-name" data-i18n="t1">3D Cone Beam CT Scans</span><span class="lab-pct">0%</span></span>
       </div>
     </div>
   </div>
@@ -872,18 +903,26 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
     var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.08});
     items.forEach(function(el){io.observe(el);});
   } else { items.forEach(function(el){el.classList.add("in");}); }
-  /* v4: reviews carousel */
+  /* v4: reviews carousel (v5: pause button, hover/focus/offscreen flags, sr text) */
   (function(){
     var root=document.querySelector(".rvx");if(!root)return;
-    var stage=root.querySelector(".rvx-stage"),tabs=[].slice.call(root.querySelectorAll(".rvx-tab")),qs=[].slice.call(root.querySelectorAll(".rvx-q")),cur=0;
-    function split(q){var b=q.querySelector("blockquote");if(!b||b.dataset.split)return;var t=b.textContent;b.dataset.split="1";b.setAttribute("aria-label",t);b.innerHTML=t.split(/(\s+)/).map(function(p,i){return /^\s+$/.test(p)?p:'<span class="w" aria-hidden="true" style="--w:'+i+'">'+p.replace(/&/g,"&amp;").replace(/</g,"&lt;")+'</span>';}).join("");}
+    var stage=root.querySelector(".rvx-stage"),tabs=[].slice.call(root.querySelectorAll(".rvx-tab")),qs=[].slice.call(root.querySelectorAll(".rvx-q")),pp=root.querySelector(".rvx-pp"),cur=0;
+    var st={user:false,hover:false,focus:false,off:true};
+    function upd(){stage.classList.toggle("paused",st.user||st.hover||st.focus||st.off);}
+    function esc(t){return t.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+    function split(q){var b=q.querySelector("blockquote");if(!b||b.dataset.split)return;var t=b.textContent;b.dataset.split="1";
+      b.innerHTML='<span class="sr">'+esc(t)+'</span>'+t.split(/(\s+)/).map(function(p,i){return /^\s+$/.test(p)?p:'<span class="w" aria-hidden="true" style="--w:'+i+'">'+esc(p)+'</span>';}).join("");}
     function show(n){cur=(n+qs.length)%qs.length;qs.forEach(function(q,i){var on=i===cur;q.classList.toggle("is-on",on);if(on&&!reduce)split(q);});
       tabs.forEach(function(t,i){t.setAttribute("aria-pressed",i===cur?"true":"false");var b=t.querySelector(".rvx-bar");if(b){b.style.animation="none";void b.offsetWidth;b.style.animation="";}});}
-    tabs.forEach(function(t,i){t.addEventListener("click",function(){show(i);});var b=t.querySelector(".rvx-bar");if(b)b.addEventListener("animationend",function(){if(i===cur)show(cur+1);});});
-    stage.addEventListener("mouseenter",function(){stage.classList.add("paused");});stage.addEventListener("mouseleave",function(){stage.classList.remove("paused");});
-    stage.addEventListener("focusin",function(){stage.classList.add("paused");});stage.addEventListener("focusout",function(){stage.classList.remove("paused");});
-    if(!reduce&&"IntersectionObserver" in window){stage.classList.add("paused");new IntersectionObserver(function(es){es.forEach(function(e){if(!stage.matches(":hover"))stage.classList.toggle("paused",!e.isIntersecting);});},{threshold:.3}).observe(stage);}
-    show(0);
+    tabs.forEach(function(t,i){t.addEventListener("click",function(){show(i);});var b=t.querySelector(".rvx-bar");if(b)b.addEventListener("animationend",function(){if(i===cur&&!reduce)show(cur+1);});});
+    function ppLabel(){var es=document.documentElement.lang==="es";pp.setAttribute("aria-label",st.user?(es?"Reanudar reseñas":"Play reviews"):(es?"Pausar reseñas":"Pause reviews"));}
+    if(pp){pp.addEventListener("click",function(){st.user=!st.user;pp.setAttribute("aria-pressed",st.user?"true":"false");ppLabel();upd();});
+      new MutationObserver(ppLabel).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});ppLabel();}
+    stage.addEventListener("mouseenter",function(){st.hover=true;upd();});stage.addEventListener("mouseleave",function(){st.hover=false;upd();});
+    stage.addEventListener("focusin",function(){st.focus=true;upd();});
+    stage.addEventListener("focusout",function(e){if(!stage.contains(e.relatedTarget)){st.focus=false;upd();}});
+    if("IntersectionObserver" in window){new IntersectionObserver(function(es){es.forEach(function(e){st.off=!e.isIntersecting;upd();});},{threshold:.3}).observe(stage);}else{st.off=false;}
+    upd();show(0);
   })();
   /* v4: imaging lab */
   (function(){
@@ -894,13 +933,14 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
     lit.addEventListener("animationend",function(e){if(e.animationName==="labReveal"){frame.classList.remove("run");frame.classList.add("done");}});
     function pick(btn){items.forEach(function(b){b.setAttribute("aria-pressed",b===btn?"true":"false");});
       base.src=lit.src=btn.dataset.img;lit.alt=btn.dataset.alt;frame.classList.toggle("contain",btn.dataset.fit==="contain");
-      code.textContent="SCAN "+btn.dataset.n;var k=btn.dataset.key,src=btn.querySelector("[data-i18n='"+k+"']");nm.setAttribute("data-i18n",k);if(src)nm.innerHTML=src.innerHTML;
-      lens.style.backgroundImage="url('"+btn.dataset.img+"')";if(seen)run();}
-    items.forEach(function(b){b.addEventListener("click",function(){pick(b);});});
+      code.textContent=btn.dataset.n+" / 03";var k=btn.dataset.key,src=btn.querySelector("[data-i18n='"+k+"']");nm.setAttribute("data-i18n",k);if(src)nm.innerHTML=src.innerHTML;
+      lens.style.backgroundImage="url('"+btn.dataset.img+"')";if(seen){if(lit.complete)run();else lit.addEventListener("load",run,{once:true});}}
+    items.forEach(function(b){b.addEventListener("click",function(){pick(b);});var im=new Image();im.src=b.dataset.img;});
     lens.style.backgroundImage="url('"+items[0].dataset.img+"')";
     if(window.matchMedia&&window.matchMedia("(hover:hover) and (pointer:fine)").matches){
-      frame.addEventListener("pointermove",function(e){if(frame.classList.contains("contain")){frame.classList.remove("lens-on");return;}var r=frame.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,z=2.2;
-        lens.style.left=x+"px";lens.style.top=y+"px";lens.style.backgroundSize=(r.width*z)+"px "+(r.height*z)+"px";lens.style.backgroundPosition=(-(x*z-85))+"px "+(-(y*z-85))+"px";frame.classList.add("lens-on");});
+      frame.addEventListener("pointermove",function(e){var r=frame.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,z=1.6,nw=lit.naturalWidth,nh=lit.naturalHeight;if(!nw||!nh)return;
+        var sc=Math.max(r.width/nw,r.height/nh),dw=nw*sc,dh=nh*sc,py=frame.classList.contains("contain")?.4:.5,ox=(r.width-dw)*.5,oy=(r.height-dh)*py;
+        lens.style.left=x+"px";lens.style.top=y+"px";lens.style.backgroundSize=(dw*z)+"px "+(dh*z)+"px";lens.style.backgroundPosition=(-((x-ox)*z-85))+"px "+(-((y-oy)*z-85))+"px";frame.classList.add("lens-on");});
       frame.addEventListener("pointerleave",function(){frame.classList.remove("lens-on");});}
     if("IntersectionObserver" in window){new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){seen=true;run();o.disconnect();}});},{threshold:.35}).observe(frame);}else{seen=true;run();}
   })();
