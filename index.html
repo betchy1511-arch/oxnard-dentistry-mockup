@@ -474,7 +474,7 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
 .btn-call{background:#fff;color:var(--deep);border:1.5px solid var(--teal)}
 .btn-call:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
 .btn-call:hover .bi{background:rgba(255,255,255,.18);color:#fff}
-.rvx-pp{width:42px;height:42px;border-radius:50%;border:1.5px solid #B9CFCB;background:#fff;display:grid;place-items:center;cursor:pointer;order:9;margin-left:auto}
+.rvx-pp{width:42px;height:42px;border-radius:50%;border:1.5px solid #B9CFCB;background:#fff;display:grid;place-items:center;cursor:pointer;margin-left:auto}
 .rvx-pp span{width:12px;height:14px;border-left:4px solid var(--deep);border-right:4px solid var(--deep)}
 .rvx-pp[aria-pressed="true"] span{width:0;height:0;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent var(--deep);border-right:0;margin-left:3px}
 .rvx-pp:focus-visible,.rvx-tab:focus-visible,.lab-item:focus-visible{outline:3px solid var(--cta);outline-offset:3px}
@@ -492,6 +492,54 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
 .stat .st-ic.g-ic{background:#fff;border:1px solid var(--line);box-shadow:0 4px 12px rgba(13,50,54,.08)}
 .st-g{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#4285F4,#EA4335,#FBBC04,#34A853) border-box;border:2px solid transparent}
 @media (max-width:700px){.stat{min-height:128px;padding:20px}.stat b{font-size:32px;padding-right:44px}.stat .st-ic{width:38px;height:38px;top:16px;right:16px}.stat b .star{display:block;margin:8px 0 0;transform:none;font-size:14px}}
+
+/* v5b */
+header.site.scrolled .nav-pill .btn-call{border-color:var(--teal);background:#fff}
+header.site.scrolled .nav-pill .btn-call:hover{background:var(--teal);color:#fff}
+header.site.scrolled .nav-pill .btn-call:hover .bi{background:rgba(255,255,255,.18);color:#fff}
+@media (max-width:700px){.stat b .star{display:inline-block;margin:0 0 0 6px;font-size:11px;letter-spacing:1px;transform:translateY(-3px)}.st-g b{padding-right:36px}.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.stat{padding:18px 16px}.stat b{font-size:28px;white-space:normal;padding-right:40px}.stat .st-ic{width:34px;height:34px;top:14px;right:12px}.stat .st-ic svg{width:18px;height:18px}.stat .st-l{font-size:13.5px}}
+
+/* v6 */
+#services .svc,#services .svc:hover,#services .svc .svc-img,#services .svc:hover .svc-img{transform:none!important;transition:none!important;box-shadow:none}
+#services .svc .btn-small::after,#services .svc:hover .btn-small::after{transition:none;transform:rotate(45deg)}
+#services h2{clip-path:none!important;transform:none!important;transition:none!important}
+.stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat b{white-space:normal}
+@media (max-width:1180px){.stat b{font-size:34px}}
+.pass{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);background:var(--deep);color:#E8F1EF;border-radius:var(--r-md);overflow:hidden;position:relative}
+.pass-main{padding:48px 48px 44px}
+.pass-main .eyebrow{color:#8FD6C8}.pass-main h2{color:#fff;font-size:clamp(30px,3vw,44px);margin-bottom:30px}
+.pass-k{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8FD6C8;margin-bottom:8px}
+.pass-addr a{display:block;font-size:clamp(24px,2.4vw,34px);font-weight:700;line-height:1.2;color:#fff;text-decoration:none;letter-spacing:-.01em}
+.pass-addr a:hover{text-decoration:underline;text-underline-offset:5px}
+.pass-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0 32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)}
+.pass-row a{color:#fff;font-weight:600;font-size:18px;text-underline-offset:4px}
+.pass-acts{display:flex;gap:12px;flex-wrap:wrap}
+.pass .btn-call{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.pass .btn-call .bi{background:rgba(255,255,255,.14);color:#fff}
+.pass .btn-call:hover{background:#fff;color:var(--deep)}
+.pass .btn-call:hover .bi{background:var(--teal-soft);color:var(--teal)}
+.pass-stub{position:relative;background:var(--deep2);padding:48px 40px 44px 48px;border-left:2px dashed rgba(143,214,200,.35);display:flex;flex-direction:column;overflow:hidden}
+.pass-stub::before,.pass-stub::after{content:"";position:absolute;left:-17px;width:32px;height:32px;border-radius:50%;background:var(--card)}
+.pass-stub::before{top:-16px}.pass-stub::after{bottom:-16px}
+.pass .hours{width:100%;border-collapse:collapse;margin-top:4px}
+.pass .hours th,.pass .hours td{color:#E8F1EF;padding:14px 0!important;border-bottom:1px solid rgba(255,255,255,.1);font-size:16px}
+.pass .hours tr:last-child th,.pass .hours tr:last-child td{border-bottom:0}
+.pass .hours tr.today th,.pass .hours tr.today td{color:#8FFFE9}
+.pass-tooth{position:absolute;right:-30px;bottom:-40px;width:200px;height:200px;color:rgba(143,214,200,.12)}
+.pass-map{margin-top:16px;border-radius:var(--r-md);overflow:hidden;height:320px;border:1px solid var(--line)}
+.pass-map iframe{width:100%;height:100%;min-height:0;border:0;display:block}
+@media (max-width:900px){.pass{grid-template-columns:1fr}.pass-stub{border-left:0;border-top:2px dashed rgba(143,214,200,.35)}.pass-stub::before{top:-17px;left:-16px}.pass-stub::after{top:-17px;bottom:auto;left:auto;right:-16px}}
+@media (max-width:700px){.pass-main,.pass-stub{padding:28px 22px}.pass-row{grid-template-columns:1fr}.pass-map{height:260px}}
+
+.pass-same{position:relative;z-index:1;margin-top:auto;display:flex;gap:14px;align-items:center;padding:18px 20px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(143,214,200,.3);color:#fff;text-decoration:none}
+.pass-same:hover{background:rgba(255,255,255,.1)}
+.pass-bolt{width:44px;height:44px;border-radius:50%;background:var(--cta);display:grid;place-items:center;flex:none}.pass-bolt svg{width:20px;height:20px;color:#fff}
+.pass-same b{display:block;font-size:18px}.pass-same small{color:#C9DCD9;font-size:14px}
+@media (max-width:900px){.pass-same{margin-top:20px}}
+
+@media (min-width:1000px){.sec-head{flex-wrap:nowrap}.sec-head>div{min-width:0}.sec-head>p{flex:0 1 400px;margin-bottom:8px}}
+.sec-head h2,.pass-main h2,.rvx-score h2,.ins-intro h2,.lab-side h2{text-wrap:balance}
 </style>
 </head>
 <body>
@@ -608,7 +656,7 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
   </div>
 </section>
 
-<section class="panel deep rise" id="services" aria-labelledby="services-h">
+<section class="panel deep" id="services" aria-labelledby="services-h">
   <div class="sec-head">
     <div><span class="eyebrow" data-i18n="svc_eyebrow">Services</span><h2 id="services-h" data-i18n="svc_h2">Treatments Dr. Keihani Offers</h2></div>
     <p data-i18n="svc_intro">General, restorative and cosmetic dentistry. Choose a treatment to read how it works and what to expect.</p>
@@ -642,7 +690,7 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
       <div class="rvx-slides">
         <figure class="rvx-q is-on" id="rq0" lang="en"><blockquote>&ldquo;This dentist office is amazing! The staff is very knowledgeable, caring and helpful.&rdquo;</blockquote><figcaption><span class="av" style="background:#2E8279">F</span><span><b>Frank Woods</b><small>Google review</small></span></figcaption></figure><figure class="rvx-q" id="rq1" lang="en"><blockquote>&ldquo;Had my yearly exam and the dentist and staff are accommodating, thorough and professional.&rdquo;</blockquote><figcaption><span class="av" style="background:#C9462A">S</span><span><b>Shawn Coy</b><small>Google review</small></span></figcaption></figure><figure class="rvx-q" id="rq2" lang="es"><blockquote>&ldquo;Mi temor era siempre ir al dentista porque e tenido malas experiencias, pero cuando decidí ir a Dentistry se fueron mis miedos.&rdquo;</blockquote><figcaption><span class="av" style="background:#124247">D</span><span><b>Daisy Nava</b><small>Google review</small></span></figcaption></figure>
       </div>
-      <div class="rvx-tabs"><button type="button" class="rvx-pp" aria-pressed="false" aria-label="Pause reviews"><span aria-hidden="true"></span></button><button type="button" class="rvx-tab" aria-controls="rq0" aria-pressed="true"><span class="av" style="background:#2E8279">F</span><span class="rvx-tn">Frank Woods</span><i class="rvx-bar" aria-hidden="true"></i></button><button type="button" class="rvx-tab" aria-controls="rq1" aria-pressed="false"><span class="av" style="background:#C9462A">S</span><span class="rvx-tn">Shawn Coy</span><i class="rvx-bar" aria-hidden="true"></i></button><button type="button" class="rvx-tab" aria-controls="rq2" aria-pressed="false"><span class="av" style="background:#124247">D</span><span class="rvx-tn">Daisy Nava</span><i class="rvx-bar" aria-hidden="true"></i></button></div>
+      <div class="rvx-tabs"><button type="button" class="rvx-tab" aria-controls="rq0" aria-pressed="true"><span class="av" style="background:#2E8279">F</span><span class="rvx-tn">Frank Woods</span><i class="rvx-bar" aria-hidden="true"></i></button><button type="button" class="rvx-tab" aria-controls="rq1" aria-pressed="false"><span class="av" style="background:#C9462A">S</span><span class="rvx-tn">Shawn Coy</span><i class="rvx-bar" aria-hidden="true"></i></button><button type="button" class="rvx-tab" aria-controls="rq2" aria-pressed="false"><span class="av" style="background:#124247">D</span><span class="rvx-tn">Daisy Nava</span><i class="rvx-bar" aria-hidden="true"></i></button><button type="button" class="rvx-pp" aria-pressed="false" aria-label="Pause reviews"><span aria-hidden="true"></span></button></div>
     </div>
   </div>
 </section>
@@ -709,27 +757,30 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
   </div>
 </section>
 
-<section class="panel rise" id="contact" aria-labelledby="visit-h">
-  <div class="visit">
-    <div class="visit-card">
-      <div><span class="eyebrow" data-i18n="visit_eyebrow">Visit us</span><h2 id="visit-h" data-i18n="visit_h2">Come See Us on Gonzales Road</h2></div>
-      <dl>
-        <div><dt data-i18n="d_addr">Address</dt><dd><a href="https://goo.gl/maps/UF8d1Tfe6DK2" target="_blank" rel="noopener">1730 East Gonzales Rd.<br>Oxnard, CA 93036</a></dd></div>
-        <div><dt data-i18n="d_phone">Phone</dt><dd><a href="tel:+18056049999">(805) 604-9999</a></dd></div>
-        <div><dt data-i18n="d_hours">Hours</dt><dd>
-          <table class="hours"><tbody>
+<section class="panel" id="contact" aria-labelledby="visit-h">
+  <div class="pass">
+    <div class="pass-main">
+      <span class="eyebrow" data-i18n="visit_eyebrow">Visit us</span>
+      <h2 id="visit-h" data-i18n="visit_h2">Come See Us on Gonzales Road</h2>
+      <div class="pass-addr"><span class="pass-k" data-i18n="d_addr">Address</span><a href="https://goo.gl/maps/UF8d1Tfe6DK2" target="_blank" rel="noopener">1730 East Gonzales Rd.<br>Oxnard, CA 93036</a></div>
+      <div class="pass-row">
+        <div><span class="pass-k" data-i18n="d_phone">Phone</span><a href="tel:+18056049999">(805) 604-9999</a></div>
+        <div><span class="pass-k" data-i18n="d_dir">Directions</span><a href="https://goo.gl/maps/UF8d1Tfe6DK2" target="_blank" rel="noopener" data-i18n="visit_dir">Open in Google Maps</a></div>
+      </div>
+      <div class="pass-acts"><a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a><a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call_short">Call Us</span></a></div>
+    </div>
+    <div class="pass-stub">
+      <span class="pass-k" data-i18n="d_hours">Hours</span>
+      <table class="hours"><tbody>
             <tr><th scope="row" data-i18n="h_mt">Monday to Thursday</th><td data-i18n="h_5">9:00 am to 5:00 pm</td></tr>
             <tr><th scope="row" data-i18n="h_f">Friday</th><td data-i18n="h_4">9:00 am to 4:00 pm</td></tr>
             <tr><th scope="row" data-i18n="h_ss">Saturday and Sunday</th><td data-i18n="h_closed">Closed</td></tr>
-          </tbody></table></dd></div>
-      </dl>
-      <div class="visit-actions">
-        <a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a>
-        <a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call_short">Call Us</span></a>
-      </div>
+          </tbody></table>
+      <a class="pass-same" href="https://oxdentistry.com/services/emergency-dentistry/"><span class="pass-bolt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><b data-i18n="st_same_b">Same day</b><small data-i18n="st_same">Appointments for dental emergencies</small></span></a>
+      <svg class="pass-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 5c-2-2-6-2-7 1-1 4 1 7 2 11 .5 2 2 3 2.5 0L11 13h2l1.5 4c.5 3 2 2 2.5 0 1-4 3-7 2-11-1-3-5-3-7-1z"/></svg>
     </div>
-    <div class="map"><iframe title="Map to Oxnard Dentistry, 1730 East Gonzales Rd., Oxnard" src="https://www.google.com/maps?q=Oxnard+Dentistry,+1730+E+Gonzales+Rd,+Oxnard,+CA+93036&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>
+  <div class="pass-map"><iframe title="Map to Oxnard Dentistry, 1730 East Gonzales Rd., Oxnard" src="https://www.google.com/maps?q=Oxnard+Dentistry,+1730+E+Gonzales+Rd,+Oxnard,+CA+93036&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 </section>
 
 </div>
@@ -830,7 +881,7 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
     q3:"¿Qué hago en una emergencia dental?",a3:"Llámenos lo antes posible. Aceptamos citas el mismo día para pacientes con emergencias dentales.",
     q4:"¿Ofrecen financiamiento?",a4:"Trabajamos con varias compañías de financiamiento. Vea nuestra página de financiamiento o pregúntenos en su visita.",
     q5:"¿Dónde están y cuál es su horario?",a5:"Estamos en 1730 East Gonzales Rd., Oxnard, CA 93036. Abrimos de lunes a jueves de 9:00 am a 5:00 pm y el viernes de 9:00 am a 4:00 pm.",
-    visit_eyebrow:"Visítenos",visit_h2:"Visítenos en Gonzales Road",d_addr:"Dirección",d_phone:"Teléfono",d_hours:"Horario",
+    d_dir:"Cómo llegar",visit_dir:"Abrir en Google Maps",visit_eyebrow:"Visítenos",visit_h2:"Visítenos en Gonzales Road",d_addr:"Dirección",d_phone:"Teléfono",d_hours:"Horario",
     h_mt:"Lunes a jueves",h_f:"Viernes",h_ss:"Sábado y domingo",h_closed:"Cerrado",vid_pause:"Pausar video",vid_tag:"Video de muestra",s3x:"Invisalign",hero_rating:"Calificación de 4.8 en 979 reseñas de Google",logos_label:"Miembro de",logos_inv:"Ofrecemos Invisalign",logos_fin:"Financiamiento con",st_rev:"Reseñas en Google",st_same_b:"El mismo día",st_same:"Citas para emergencias dentales",h_5:"9:00 am a 5:00 pm",h_4:"9:00 am a 4:00 pm",
     f_pages:"Páginas",f_fin:"Financiamiento",f_follow:"Síganos",f_priv:"Política de privacidad",f_terms:"Términos y condiciones",f_access:"Accesibilidad"
   };
@@ -918,8 +969,9 @@ html[lang="es"] .hours tr.today th::after{content:"Hoy"}
     function ppLabel(){var es=document.documentElement.lang==="es";pp.setAttribute("aria-label",st.user?(es?"Reanudar reseñas":"Play reviews"):(es?"Pausar reseñas":"Pause reviews"));}
     if(pp){pp.addEventListener("click",function(){st.user=!st.user;pp.setAttribute("aria-pressed",st.user?"true":"false");ppLabel();upd();});
       new MutationObserver(ppLabel).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});ppLabel();}
-    stage.addEventListener("mouseenter",function(){st.hover=true;upd();});stage.addEventListener("mouseleave",function(){st.hover=false;upd();});
-    stage.addEventListener("focusin",function(){st.focus=true;upd();});
+    var ptr=false;stage.addEventListener("pointerenter",function(e){if(e.pointerType==="mouse"){st.hover=true;upd();}});stage.addEventListener("pointerleave",function(e){if(e.pointerType==="mouse"){st.hover=false;upd();}});
+    stage.addEventListener("pointerdown",function(){ptr=true;setTimeout(function(){ptr=false;},0);});
+    stage.addEventListener("focusin",function(){if(ptr)return;st.focus=true;upd();});
     stage.addEventListener("focusout",function(e){if(!stage.contains(e.relatedTarget)){st.focus=false;upd();}});
     if("IntersectionObserver" in window){new IntersectionObserver(function(es){es.forEach(function(e){st.off=!e.isIntersecting;upd();});},{threshold:.3}).observe(stage);}else{st.off=false;}
     upd();show(0);
