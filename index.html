@@ -1073,7 +1073,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   document.querySelectorAll(".services,.tech,.reviews,.choices,.pay,.stats").forEach(function(g){Array.prototype.forEach.call(g.children,function(c,i){c.style.setProperty("--i",i);});});
   function countUp(el){var to=parseFloat(el.dataset.count),dec=+el.dataset.dec||0;if(reduce){el.textContent=to.toFixed(dec);return;}var t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/3200),e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
   var nums=document.querySelectorAll(".num[data-count]");if(!reduce&&"IntersectionObserver" in window){Array.prototype.forEach.call(nums,function(n){n.textContent=(0).toFixed(+n.dataset.dec||0);});}
-  if("IntersectionObserver" in window){var cio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){countUp(en.target);cio.unobserve(en.target);}});},{threshold:.6});nums.forEach(function(n){cio.observe(n);});}
+  if("IntersectionObserver" in window){var cio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){countUp(en.target);cio.unobserve(en.target);}});},{threshold:.1});nums.forEach(function(n){cio.observe(n);});}
   var items=document.querySelectorAll(".rise");
   if("IntersectionObserver" in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.08});
