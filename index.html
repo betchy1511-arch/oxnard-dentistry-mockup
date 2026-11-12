@@ -72,7 +72,7 @@ p{margin:0}
 .burger{display:none;background:var(--soft);border:1px solid var(--line);border-radius:14px;width:48px;height:48px;cursor:pointer;color:var(--ink)}
 .burger svg{width:22px;height:22px;margin:auto}
 
-/* Hero: full-width photo of the practice with a frosted panel */
+/* Hero: full-width sample video with a frosted panel */
 .glass{position:relative;z-index:2;margin:0;max-width:680px;background:rgba(13,50,54,.55);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:26px;padding:34px 36px;color:#fff}
 .rating{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;margin-bottom:16px}
 .rating .g{width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center}
@@ -299,11 +299,11 @@ header.site.scrolled .nav-pill .brand{background:transparent}
 .hero h1 em{background:linear-gradient(90deg,#9FE0D4,#F2C27A,#9FE0D4);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear 1.6s infinite}
 @keyframes shine{to{background-position:-200% 0}}
 .vid-toggle{position:absolute;z-index:3;right:24px;bottom:78px;background:rgba(0,0,0,.35);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:7px 14px;font:inherit;font-size:13px;cursor:pointer;backdrop-filter:blur(8px)}
-.vid-tag{position:absolute;z-index:3;right:24px;bottom:122px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);background:rgba(0,0,0,.25);border-radius:999px;padding:4px 10px}
+.vid-tag{position:absolute;z-index:3;right:24px;bottom:122px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.5);border-radius:999px;padding:4px 10px}
 .ticker{position:absolute;z-index:3;left:0;right:0;bottom:0;height:56px;background:rgba(255,255,255,.95);color:var(--deep);overflow:hidden;display:flex;align-items:center;border-top:1px solid rgba(255,255,255,.4)}
 .ticker-track{display:flex;align-items:center;gap:28px;white-space:nowrap;animation:marquee 42s linear infinite;padding-left:28px;font-weight:600;font-size:15px}
 .ticker-track i{width:8px;height:8px;border-radius:50%;background:var(--cta);display:inline-block;flex:none}
-.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker:hover .ticker-track,.hero.paused .ticker-track{animation-play-state:paused}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* buttons: icon nudge + sheen */
@@ -346,12 +346,13 @@ header.site.scrolled .nav-pill .brand{background:transparent}
   .hero::before{background:linear-gradient(0deg,rgba(6,26,29,.92) 0%,rgba(6,26,29,.7) 45%,rgba(6,26,29,.15) 100%)}
   .hero-inner{padding:120px 12px 76px}
   .hero .glass{padding:22px 18px;border-radius:22px;background:rgba(13,50,54,.5)}
-  .vid-toggle{right:12px;bottom:66px;top:auto;font-size:12px}
-  .vid-tag{right:12px;top:84px;bottom:auto}
+  .vid-toggle{right:12px;top:78px;bottom:auto;font-size:12px}
+  .vid-tag{left:12px;right:auto;top:84px;bottom:auto}
   .ticker{height:46px}
   .ticker-track{font-size:13px;gap:20px}
 }
 @media (prefers-reduced-motion:reduce){
+  .btn,.btn:hover,.btn .bi,.btn:hover .bi,.svc,.svc:hover,.svc .svc-img,.svc:hover .svc-img,.nav-pill,.nav-pill .brand:hover,.btn-book::after{transition:none!important;transform:none!important}
   .rv,.rv-mask,.nav-pill,.hero-media video,.hero h1 em,.ticker-track{animation:none!important;opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}
   .js .panel.rise,.js .rise h2,.js .rise .svc,.js .rise .tcard,.js .rise .rev,.js .rise .choice,.js .rise .pay-card,.js .stats.rise .stat,.js .rise .doc-photo img,.js .rise .tcard .timg{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}
 }
@@ -725,7 +726,10 @@ header.site.scrolled .nav-pill .brand{background:transparent}
     if(reduce){vid.removeAttribute("autoplay");vid.pause();}
     var vt=document.querySelector(".vid-toggle");
     function vtLabel(){var paused=vid.paused;vt.setAttribute("aria-pressed",paused?"true":"false");vt.querySelector("span").textContent=lang==="es"?(paused?"Reproducir video":"Pausar video"):(paused?"Play video":"Pause video");}
-    if(vt){vt.addEventListener("click",function(){if(vid.paused)vid.play();else vid.pause();vtLabel();});vid.addEventListener("play",vtLabel);vid.addEventListener("pause",vtLabel);document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",vtLabel);});vtLabel();}
+    var heroSec=document.querySelector(".hero"),userPaused=reduce;
+    function vtSync(){vtLabel();if(heroSec)heroSec.classList.toggle("paused",vid.paused);}
+    if(vt){vt.addEventListener("click",function(){if(vid.paused){userPaused=false;var pr=vid.play();if(pr&&pr.catch)pr.catch(function(){vtSync();});}else{userPaused=true;vid.pause();}vtSync();});vid.addEventListener("play",vtSync);vid.addEventListener("pause",vtSync);document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setTimeout(vtSync,0);});});vtSync();}
+    if("IntersectionObserver" in window){new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){if(!userPaused){var pr=vid.play();if(pr&&pr.catch)pr.catch(function(){});}}else{vid.pause();}});},{threshold:.15}).observe(vid);}
   }
   var ticking=false;
   function frame(){
