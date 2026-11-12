@@ -92,7 +92,7 @@ header.site{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);ba
 
 /* Logo strip */
 .logos{margin-top:18px;background:var(--card);border-radius:var(--r-md);padding:18px 28px;display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:space-between}
-.logos p{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);max-width:150px;line-height:1.4}
+.logos p{max-width:110px!important;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);max-width:150px;line-height:1.4}
 .logos img{height:34px;width:auto;max-width:170px;object-fit:contain}
 
 /* Stats */
@@ -315,10 +315,10 @@ footer.site a:hover{color:#fff;text-decoration:underline}
 <div class="wrap">
 
 <section class="hero" aria-labelledby="hero-h">
-  <div class="hero-frame" role="img" aria-label="Dr. Kourosh Keihani in a white coat beside an X-ray on screen">
+  <div class="hero-frame"><span class="sr" role="img" aria-label="Photo: Dr. Kourosh Keihani in a white coat beside an X-ray on screen"></span>
     <div class="glass">
       <div class="glass-chip"><span class="chip"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span data-i18n="hero_eyebrow">Oxnard Dentistry, 1730 East Gonzales Road</span></span></div>
-      <div class="rating"><span class="g"><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span data-i18n="hero_rating">4.8 rating from 979 Google reviews</span></div>
+      <div class="rating"><span class="g"><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><span class="stars" aria-hidden="true">&#9733;</span><span data-i18n="hero_rating">4.8 rating from 979 Google reviews</span></div>
       <h1 id="hero-h" data-i18n="hero_h1">Dr. Kourosh Keihani, <em>Your Dentist in Oxnard, CA</em></h1>
       <p class="lead" data-i18n="hero_lead">Check-ups, cleanings, Invisalign, implants and cosmetic care for patients from youngsters to seniors, from Dr. Keihani and his friendly team.</p>
       <div class="hero-actions on-dark">
@@ -331,11 +331,11 @@ footer.site a:hover{color:#fff;text-decoration:underline}
 </section>
 
 <div class="logos rise">
-  <p data-i18n="logos_label">Memberships, treatments and financing</p>
+  <p data-i18n="logos_label">Member of</p>
   <img src="img/logo-ada.png" alt="American Dental Association" width="296" height="120" loading="lazy">
   <img src="img/logo-cda.png" alt="California Dental Association" width="181" height="120" loading="lazy">
-  <img src="img/logo-invisalign.png" alt="Invisalign" width="400" height="106" loading="lazy">
-  <img src="img/carecredit-logo.jpg" alt="CareCredit" width="360" height="47" loading="lazy">
+  <p data-i18n="logos_inv">Invisalign offered</p><img src="img/logo-invisalign.png" alt="Invisalign" width="400" height="106" loading="lazy">
+  <p data-i18n="logos_fin">Financing through</p><img src="img/carecredit-logo.jpg" alt="CareCredit" width="360" height="47" loading="lazy">
   <img src="img/lending-club-logo.jpg" alt="LendingClub" width="360" height="55" loading="lazy">
 </div>
 
@@ -403,7 +403,7 @@ footer.site a:hover{color:#fff;text-decoration:underline}
 <section class="panel rise" id="reviews" aria-labelledby="rev-h">
   <div class="sec-head">
     <div><span class="eyebrow" data-i18n="rev_eyebrow">Patient reviews</span><h2 id="rev-h" data-i18n="rev_h2">What Oxnard Patients Say</h2></div>
-    <div class="score"><span class="g"><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><b>4.8</b><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span data-i18n="rev_badge">979 Google reviews</span></div>
+    <div class="score"><span class="g"><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><b>4.8</b><span class="stars" aria-hidden="true">&#9733;</span><span data-i18n="rev_badge">979 Google reviews</span></div>
   </div>
   <div class="reviews">
     <figure class="rev" lang="en"><div class="rev-top"><span class="av" style="background:#2E8279">F</span><div><b>Frank Woods</b><small>Google review</small></div><span class="gl"><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span></div><blockquote>&ldquo;This dentist office is amazing! The staff is very knowledgeable, caring and helpful.&rdquo;</blockquote></figure>
@@ -585,7 +585,7 @@ footer.site a:hover{color:#fff;text-decoration:underline}
     q4:"¿Ofrecen financiamiento?",a4:"Trabajamos con varias compañías de financiamiento. Vea nuestra página de financiamiento o pregúntenos en su visita.",
     q5:"¿Dónde están y cuál es su horario?",a5:"Estamos en 1730 East Gonzales Rd., Oxnard, CA 93036. Abrimos de lunes a jueves de 9:00 am a 5:00 pm y el viernes de 9:00 am a 4:00 pm.",
     visit_eyebrow:"Visítenos",visit_h2:"Estamos listos para atenderle",d_addr:"Dirección",d_phone:"Teléfono",d_hours:"Horario",
-    h_mt:"Lunes a jueves",h_f:"Viernes",h_ss:"Sábado y domingo",h_closed:"Cerrado",hero_rating:"Calificación de 4.8 en 979 reseñas de Google",logos_label:"Membresías, tratamientos y financiamiento",st_rev:"Reseñas en Google",st_same_b:"El mismo día",st_same:"Citas para emergencias dentales",h_5:"9:00 am a 5:00 pm",h_4:"9:00 am a 4:00 pm",
+    h_mt:"Lunes a jueves",h_f:"Viernes",h_ss:"Sábado y domingo",h_closed:"Cerrado",hero_rating:"Calificación de 4.8 en 979 reseñas de Google",logos_label:"Miembro de",logos_inv:"Ofrecemos Invisalign",logos_fin:"Financiamiento con",st_rev:"Reseñas en Google",st_same_b:"El mismo día",st_same:"Citas para emergencias dentales",h_5:"9:00 am a 5:00 pm",h_4:"9:00 am a 4:00 pm",
     f_pages:"Páginas",f_fin:"Financiamiento",f_follow:"Síganos",f_priv:"Política de privacidad",f_terms:"Términos y condiciones",f_access:"Accesibilidad"
   };
   var PICK={
