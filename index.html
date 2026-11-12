@@ -540,6 +540,44 @@ header.site.scrolled .nav-pill .btn-call:hover .bi{background:rgba(255,255,255,.
 
 @media (min-width:1000px){.sec-head{flex-wrap:nowrap}.sec-head>div{min-width:0}.sec-head>p{flex:0 1 400px;margin-bottom:8px}}
 .sec-head h2,.pass-main h2,.rvx-score h2,.ins-intro h2,.lab-side h2{text-wrap:balance}
+
+/* v6b */
+#contact .btn,#contact .btn:hover,#contact .btn .bi,#contact .btn:hover .bi{transition:none!important;transform:none!important;box-shadow:none}
+#contact .btn-book::after{display:none!important}
+.pass-same{margin-top:24px}
+.pass-stub .pass-acts{margin-top:auto;padding-top:24px}
+.pass-row{margin-bottom:0}
+
+/* v6c */
+.pass-main .pass-same{margin-top:28px}
+.pass-stub .pass-acts{display:grid;gap:10px;margin-top:auto;padding-top:28px}
+.pass-stub .pass-acts .btn{width:100%;justify-content:center}
+.pass .hours th,.pass .hours td{padding:18px 0!important}
+
+/* v7 visit: map-first */
+.vmap{position:relative;padding:0!important;overflow:hidden;min-height:640px;display:flex;align-items:center}
+.vmap-map{position:absolute;inset:0}
+.vmap-map iframe{width:100%;height:100%;min-height:0;border:0;display:block;filter:saturate(.75) contrast(1.02)}
+.vmap-card{position:relative;z-index:1;width:min(460px,calc(100% - 48px));margin:180px 0 40px 40px;background:var(--deep);color:#E8F1EF;border-radius:var(--r-md);padding:34px 34px 30px;box-shadow:0 30px 70px rgba(6,26,29,.35)}
+.vmap-card .eyebrow{color:#8FD6C8}
+.vmap-card h2{color:#fff;font-size:clamp(28px,2.6vw,36px);margin-bottom:22px;text-wrap:balance}
+.vmap-line{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid rgba(255,255,255,.12)}
+.vmap-ic{width:38px;height:38px;border-radius:50%;background:rgba(143,214,200,.14);color:#8FFFE9;display:grid;place-items:center;flex:none}.vmap-ic svg{width:18px;height:18px}
+.vmap-line>div{flex:1;min-width:0}
+.vmap-k{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8FD6C8;margin-bottom:6px}
+.vmap-line a{color:#fff;font-weight:600;font-size:17px;text-underline-offset:4px}
+.vmap .hours{width:100%;border-collapse:collapse}
+.vmap .hours th,.vmap .hours td{color:#E8F1EF;font-size:15px;padding:5px 0!important;border:0}
+.vmap .hours tr.today th,.vmap .hours tr.today td{color:#8FFFE9}
+.vmap .hours tr.today th::after{display:inline;margin-left:8px;font-size:10px}
+.vmap-acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12)}
+.vmap-acts .btn{justify-content:center;width:100%}
+.vmap .btn-call{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.vmap .btn-call .bi{background:rgba(255,255,255,.14);color:#fff}
+.vmap .btn-call:hover{background:#fff;color:var(--deep)}
+.vmap .btn,.vmap .btn:hover,.vmap .btn .bi,.vmap .btn:hover .bi{transition:none!important;transform:none!important;box-shadow:none}
+.vmap .btn-book::after{display:none!important}
+@media (max-width:900px){.vmap{display:block;min-height:0}.vmap-map{position:relative;height:300px}.vmap-card{width:auto;margin:0;border-radius:0;box-shadow:none;padding:28px 22px}.vmap-acts{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -757,30 +795,25 @@ header.site.scrolled .nav-pill .btn-call:hover .bi{background:rgba(255,255,255,.
   </div>
 </section>
 
-<section class="panel" id="contact" aria-labelledby="visit-h">
-  <div class="pass">
-    <div class="pass-main">
-      <span class="eyebrow" data-i18n="visit_eyebrow">Visit us</span>
-      <h2 id="visit-h" data-i18n="visit_h2">Come See Us on Gonzales Road</h2>
-      <div class="pass-addr"><span class="pass-k" data-i18n="d_addr">Address</span><a href="https://goo.gl/maps/UF8d1Tfe6DK2" target="_blank" rel="noopener">1730 East Gonzales Rd.<br>Oxnard, CA 93036</a></div>
-      <div class="pass-row">
-        <div><span class="pass-k" data-i18n="d_phone">Phone</span><a href="tel:+18056049999">(805) 604-9999</a></div>
-        <div><span class="pass-k" data-i18n="d_dir">Directions</span><a href="https://goo.gl/maps/UF8d1Tfe6DK2" target="_blank" rel="noopener" data-i18n="visit_dir">Open in Google Maps</a></div>
-      </div>
-      <div class="pass-acts"><a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a><a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call_short">Call Us</span></a></div>
+<section class="panel vmap" id="contact" aria-labelledby="visit-h">
+  <div class="vmap-map"><iframe title="Map to Oxnard Dentistry, 1730 East Gonzales Rd., Oxnard" src="https://www.google.com/maps?q=Oxnard+Dentistry,+1730+E+Gonzales+Rd,+Oxnard,+CA+93036&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <div class="vmap-card">
+    <span class="eyebrow" data-i18n="visit_eyebrow">Visit us</span>
+    <h2 id="visit-h" data-i18n="visit_h2">Come See Us on Gonzales Road</h2>
+    <div class="vmap-line">
+      <span class="vmap-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+      <div><span class="vmap-k" data-i18n="d_addr">Address</span><a href="https://goo.gl/maps/UF8d1Tfe6DK2" target="_blank" rel="noopener">1730 East Gonzales Rd., Oxnard, CA 93036</a></div>
     </div>
-    <div class="pass-stub">
-      <span class="pass-k" data-i18n="d_hours">Hours</span>
-      <table class="hours"><tbody>
+    <div class="vmap-line">
+      <span class="vmap-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+      <div class="vmap-hours"><span class="vmap-k" data-i18n="d_hours">Hours</span><table class="hours"><tbody>
             <tr><th scope="row" data-i18n="h_mt">Monday to Thursday</th><td data-i18n="h_5">9:00 am to 5:00 pm</td></tr>
             <tr><th scope="row" data-i18n="h_f">Friday</th><td data-i18n="h_4">9:00 am to 4:00 pm</td></tr>
             <tr><th scope="row" data-i18n="h_ss">Saturday and Sunday</th><td data-i18n="h_closed">Closed</td></tr>
-          </tbody></table>
-      <a class="pass-same" href="https://oxdentistry.com/services/emergency-dentistry/"><span class="pass-bolt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><b data-i18n="st_same_b">Same day</b><small data-i18n="st_same">Appointments for dental emergencies</small></span></a>
-      <svg class="pass-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M12 5c-2-2-6-2-7 1-1 4 1 7 2 11 .5 2 2 3 2.5 0L11 13h2l1.5 4c.5 3 2 2 2.5 0 1-4 3-7 2-11-1-3-5-3-7-1z"/></svg>
+          </tbody></table></div>
     </div>
+    <div class="vmap-acts"><a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a><a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call_short">Call Us</span></a></div>
   </div>
-  <div class="pass-map"><iframe title="Map to Oxnard Dentistry, 1730 East Gonzales Rd., Oxnard" src="https://www.google.com/maps?q=Oxnard+Dentistry,+1730+E+Gonzales+Rd,+Oxnard,+CA+93036&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 </section>
 
 </div>
@@ -969,8 +1002,8 @@ header.site.scrolled .nav-pill .btn-call:hover .bi{background:rgba(255,255,255,.
     function ppLabel(){var es=document.documentElement.lang==="es";pp.setAttribute("aria-label",st.user?(es?"Reanudar reseñas":"Play reviews"):(es?"Pausar reseñas":"Pause reviews"));}
     if(pp){pp.addEventListener("click",function(){st.user=!st.user;pp.setAttribute("aria-pressed",st.user?"true":"false");ppLabel();upd();});
       new MutationObserver(ppLabel).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});ppLabel();}
-    var ptr=false;stage.addEventListener("pointerenter",function(e){if(e.pointerType==="mouse"){st.hover=true;upd();}});stage.addEventListener("pointerleave",function(e){if(e.pointerType==="mouse"){st.hover=false;upd();}});
-    stage.addEventListener("pointerdown",function(){ptr=true;setTimeout(function(){ptr=false;},0);});
+    var ptr=false;stage.addEventListener("click",function(){setTimeout(function(){ptr=false;},0);});stage.addEventListener("pointerenter",function(e){if(e.pointerType==="mouse"){st.hover=true;upd();}});stage.addEventListener("pointerleave",function(e){if(e.pointerType==="mouse"){st.hover=false;upd();}});
+    stage.addEventListener("pointerdown",function(){ptr=true;if(st.focus){st.focus=false;upd();}});
     stage.addEventListener("focusin",function(){if(ptr)return;st.focus=true;upd();});
     stage.addEventListener("focusout",function(e){if(!stage.contains(e.relatedTarget)){st.focus=false;upd();}});
     if("IntersectionObserver" in window){new IntersectionObserver(function(es){es.forEach(function(e){st.off=!e.isIntersecting;upd();});},{threshold:.3}).observe(stage);}else{st.off=false;}
