@@ -658,6 +658,15 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
  .vis-num{margin-top:0;padding-top:0;display:block}.vis-big{font-size:clamp(80px,12vw,130px)}.vis-street{margin-top:10px}
  .vis-row{grid-template-columns:auto minmax(0,1fr)}}
 @media (max-width:700px){.vis-addr{grid-template-columns:1fr;padding:26px 20px}.vis-big{font-size:clamp(84px,26vw,120px)}.vis-row{grid-template-columns:1fr}}
+
+@supports not (-webkit-text-stroke:1px){.vis-big{color:rgba(143,214,200,.4)}}
+
+/* v8e */
+.svc .btn-small{font-size:13.5px}.svc .btn-small::after{flex:none}
+.wk{min-height:0!important;justify-content:flex-start}
+.rvx-slides{min-height:200px}
+.rvx-score h2{margin-bottom:0}.rvx-big{margin-top:auto;padding-top:20px}
+@media (max-width:700px){.stat b{font-size:22px;white-space:nowrap;padding-right:34px}.stat .st-ic{width:30px;height:30px;top:14px;right:10px}.stat .st-ic svg{width:15px;height:15px}}
 </style>
 </head>
 <body>
@@ -1063,7 +1072,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   window.addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(frame);}},{passive:true});frame();
   document.querySelectorAll(".services,.tech,.reviews,.choices,.pay,.stats").forEach(function(g){Array.prototype.forEach.call(g.children,function(c,i){c.style.setProperty("--i",i);});});
   function countUp(el){var to=parseFloat(el.dataset.count),dec=+el.dataset.dec||0;if(reduce){el.textContent=to.toFixed(dec);return;}var t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/3200),e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
-  var nums=document.querySelectorAll(".num[data-count]");
+  var nums=document.querySelectorAll(".num[data-count]");if(!reduce&&"IntersectionObserver" in window){Array.prototype.forEach.call(nums,function(n){n.textContent=(0).toFixed(+n.dataset.dec||0);});}
   if("IntersectionObserver" in window){var cio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){countUp(en.target);cio.unobserve(en.target);}});},{threshold:.6});nums.forEach(function(n){cio.observe(n);});}
   var items=document.querySelectorAll(".rise");
   if("IntersectionObserver" in window){
