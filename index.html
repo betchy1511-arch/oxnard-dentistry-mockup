@@ -674,6 +674,21 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
 .vis-map iframe{position:absolute;left:0;top:-170px;width:100%;height:calc(100% + 170px);border:0;display:block}
 @media (max-width:700px){.vis-map{height:300px}.vis-map iframe{top:-140px;height:calc(100% + 140px)}}
 @media (prefers-reduced-motion:reduce){.js .rvx .rvx-fill{width:96%;transition:none}}
+
+/* v9 (13 Nov): Beth's 5 notes */
+@media (min-width:900px){.hero .glass{max-width:760px}.hero h1 em{white-space:nowrap}}
+.rvx-num,.num[data-count]{font-variant-numeric:tabular-nums}
+@media (min-width:701px){.rvx-big{flex-wrap:nowrap}.rvx-meta{min-width:0}}
+.vis-big{line-height:1}
+.vis-street{margin-top:18px}
+@media (min-width:1101px){.vis-row{grid-template-columns:1fr;gap:16px}.vis-same{justify-self:stretch}.vis-same small{display:inline}.vis-same b{display:inline;margin-right:6px}}
+.btn,.hero-actions .btn{justify-content:center}
+.vis-same{justify-content:center}
+/* all quotes share one grid cell so the box is always as tall as the longest review: nothing below or beside it moves when the quote changes */
+.js .rvx-q{display:block;grid-area:1/1;visibility:hidden}.js .rvx-q.is-on{visibility:visible}
+.vis-maplink{position:absolute;left:16px;top:16px;z-index:2;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 18px 8px 10px;border-radius:999px;background:var(--deep);color:#fff;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid rgba(255,255,255,.85);box-shadow:0 8px 22px -8px rgba(0,0,0,.45)}
+.vis-maplink .bi{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center}.vis-maplink svg{width:15px;height:15px}
+.vis-maplink:hover{background:var(--teal,#1C6B66)}
 </style>
 </head>
 <body>
@@ -697,7 +712,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
       <ul class="menu" id="menu">
         <li><a href="#top" aria-current="page" data-i18n="nav_home">Home</a></li>
         <li><a href="#services" data-i18n="nav_services">Services</a></li>
-        <li><a href="#dr-keihani" data-i18n="nav_doctor">Dr. Keihani</a></li>
+        <li><a href="#dr-keihani" data-i18n="nav_doctor">Dr.&nbsp;Keihani</a></li>
         <li><a href="#insurance" data-i18n="nav_insurance">Insurance</a></li>
         <li><a href="#reviews" data-i18n="nav_reviews">Reviews</a></li>
         <li><a href="https://oxdentistry.com/blog/" data-i18n="nav_blog">Blog</a></li>
@@ -724,8 +739,8 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
     <div class="glass">
       <div class="glass-chip rv" style="--d:.15s"><span class="chip"><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span data-i18n="hero_eyebrow">Oxnard Dentistry, 1730 East Gonzales Road</span></span></div>
       <div class="rv" style="--d:.3s"><div class="rating"><span class="g"><svg viewBox="0 0 48 48" width="16" height="16" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span><span class="stars" aria-hidden="true">&#9733;</span><span data-i18n="hero_rating">4.8 rating from 979 Google reviews</span></div></div>
-      <h1 class="rv-mask" style="--d:.45s" id="hero-h" data-i18n="hero_h1">Dr. Kourosh Keihani, <em>Your Dentist in Oxnard,&nbsp;CA</em></h1>
-      <p class="lead rv" style="--d:.75s" data-i18n="hero_lead">Check-ups, cleanings, Invisalign, implants and cosmetic care for patients from youngsters to seniors, from Dr. Keihani and his friendly team.</p>
+      <h1 class="rv-mask" style="--d:.45s" id="hero-h" data-i18n="hero_h1">Dr.&nbsp;Kourosh Keihani, <em>Your Dentist in Oxnard,&nbsp;CA</em></h1>
+      <p class="lead rv" style="--d:.75s" data-i18n="hero_lead">Check-ups, cleanings, Invisalign, implants and cosmetic care for patients from youngsters to seniors, from Dr.&nbsp;Keihani and his friendly team.</p>
       <div class="hero-actions on-dark rv" style="--d:.9s">
         <a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a>
         <a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call">Call (805) 604-9999</span></a>
@@ -758,12 +773,12 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
 
 <section class="panel rise" id="dr-keihani" aria-labelledby="doc-h">
   <div class="doc">
-    <figure class="doc-photo"><img src="img/dr-keihani.jpg" alt="Portrait of Dr. Kourosh Keihani, DDS, in black scrubs" width="400" height="400" loading="lazy"><figcaption><b>Dr. Kourosh Keihani, DDS</b><span data-i18n="namecard">Cosmetic and General Dentist, USC School of Dentistry</span></figcaption></figure>
+    <figure class="doc-photo"><img src="img/dr-keihani.jpg" alt="Portrait of Dr. Kourosh Keihani, DDS, in black scrubs" width="400" height="400" loading="lazy"><figcaption><b>Dr.&nbsp;Kourosh Keihani, DDS</b><span data-i18n="namecard">Cosmetic and General Dentist, USC School of Dentistry</span></figcaption></figure>
     <div>
       <span class="eyebrow" data-i18n="doc_eyebrow">Meet your dentist</span>
-      <h2 id="doc-h">Dr. Kourosh Keihani, DDS</h2>
+      <h2 id="doc-h">Dr.&nbsp;Kourosh Keihani, DDS</h2>
       <p class="role" data-i18n="doc_role">Cosmetic and General Dentist</p>
-      <p data-i18n="doc_p1">Dr. Keihani completed his education at the USC School of Dentistry and worked as a general dentist in Beverly Hills before caring for patients in Oxnard.</p>
+      <p data-i18n="doc_p1">Dr.&nbsp;Keihani completed his education at the USC School of Dentistry and worked as a general dentist in Beverly Hills before caring for patients in Oxnard.</p>
       <p data-i18n="doc_p2">He offers a full range of general, restorative and cosmetic treatment for patients from youngsters to seniors. At your visit, expect a comprehensive and gentle exam.</p>
       <p class="member" data-i18n="member">Member of</p>
       <ul class="creds-logos"><li><img src="img/logo-ada.png" alt="American Dental Association" width="296" height="120" loading="lazy"></li><li><img src="img/logo-cda.png" alt="California Dental Association" width="181" height="120" loading="lazy"></li><li><img src="img/logo-lads.png" alt="Los Angeles Dental Society" width="517" height="71" loading="lazy"></li></ul>
@@ -776,7 +791,6 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
 <section class="panel rise" aria-labelledby="planner-h">
   <div class="sec-head">
     <div><span class="eyebrow" data-i18n="plan_eyebrow">Plan your visit</span><h2 id="planner-h" data-i18n="plan_h2">What Brings You in Today?</h2></div>
-    <p data-i18n="plan_note">Pick one to see where to start.</p>
   </div>
   <div class="choices" role="group" aria-label="Reason for visit">
     <button type="button" class="choice" data-pick="pain" aria-pressed="true"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><b data-i18n="c_pain">Something Hurts</b><span data-i18n="c_pain_s">Toothache, swelling, a broken tooth</span></button>
@@ -792,8 +806,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
 
 <section class="panel deep" id="services" aria-labelledby="services-h">
   <div class="sec-head">
-    <div><span class="eyebrow" data-i18n="svc_eyebrow">Services</span><h2 id="services-h" data-i18n="svc_h2">Treatments Dr. Keihani Offers</h2></div>
-    <p data-i18n="svc_intro">General, restorative and cosmetic dentistry. Choose a treatment to read how it works and what to expect.</p>
+    <div><span class="eyebrow" data-i18n="svc_eyebrow">Services</span><h2 id="services-h" data-i18n="svc_h2">Treatments Dr.&nbsp;Keihani Offers</h2></div>
   </div>
   <div class="services">
     <article class="svc"><img class="svc-img" src="img/svc-general.jpg" alt="Dental mirror checking teeth on a dental model" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s1">General Dentistry</h3><p data-i18n="s1p">Check-ups, cleanings and fillings that keep small problems small.</p><a class="btn-small" href="https://oxdentistry.com/services/" data-i18n="s1b">Oxnard Dental Services</a></div></article>
@@ -913,7 +926,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
       <div class="vis-acts"><a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a><a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call_short">Call Us</span></a></div>
     </div>
   </div>
-  <div class="vis-map"><iframe title="Map to Oxnard Dentistry, 1730 East Gonzales Rd., Oxnard" src="https://www.google.com/maps?q=Oxnard+Dentistry,+1730+E+Gonzales+Rd,+Oxnard,+CA+93036&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <div class="vis-map"><a class="vis-maplink" href="https://goo.gl/maps/UF8d1Tfe6DK2" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span data-i18n="map_view">View Map</span><span class="sr" data-i18n="map_view_sr"> (opens Google Maps)</span></a><iframe title="Map to Oxnard Dentistry, 1730 East Gonzales Rd., Oxnard" src="https://www.google.com/maps?q=Oxnard+Dentistry,+1730+E+Gonzales+Rd,+Oxnard,+CA+93036&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 </section>
 
 </div>
@@ -931,7 +944,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
         <ul>
           <li><a href="#top" data-i18n="nav_home">Home</a></li>
           <li><a href="https://oxdentistry.com/services/" data-i18n="nav_services">Services</a></li>
-          <li><a href="https://oxdentistry.com/our-doctors/" data-i18n="nav_doctor">Dr. Keihani</a></li>
+          <li><a href="https://oxdentistry.com/our-doctors/" data-i18n="nav_doctor">Dr.&nbsp;Keihani</a></li>
           <li><a href="https://oxdentistry.com/financing-options/" data-i18n="f_fin">Financing</a></li>
           <li><a href="https://oxdentistry.com/blog/" data-i18n="nav_blog">Blog</a></li>
           <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
@@ -967,21 +980,22 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   var ES={
     skip:"Ir al contenido principal",
     strip:'<strong>¿Dolor de muelas o un diente roto?</strong> Aceptamos citas el mismo día para emergencias dentales. Llame al <a href="tel:+18056049999">(805) 604-9999</a>',
-    nav_home:"Inicio",nav_services:"Servicios",nav_doctor:"Dr. Keihani",nav_insurance:"Seguros",nav_reviews:"Reseñas",nav_blog:"Blog",nav_contact:"Contacto",
+    nav_home:"Inicio",nav_services:"Servicios",nav_doctor:"Dr.&nbsp;Keihani",nav_insurance:"Seguros",nav_reviews:"Reseñas",nav_blog:"Blog",nav_contact:"Contacto",
     book:'Reservar en línea<span class="sr"> en Zocdoc, se abre en una pestaña nueva</span>',call:"Llame al (805) 604-9999",call_short:"Llámenos",
     hero_eyebrow:"Oxnard Dentistry, 1730 East Gonzales Road",
-    hero_h1:"Dr. Kourosh Keihani, <em>su dentista en Oxnard,&nbsp;CA</em>",
-    hero_lead:"Revisiones, limpiezas, Invisalign, implantes y tratamientos estéticos para pacientes desde niños hasta adultos mayores, con el Dr. Keihani y su amable equipo.",
+    hero_h1:"Dr.&nbsp;Kourosh Keihani, <em>su dentista en Oxnard,&nbsp;CA</em>",
+    map_view:"Ver mapa",map_view_sr:" (abre Google Maps)",
+    hero_lead:"Revisiones, limpiezas, Invisalign, implantes y tratamientos estéticos para pacientes desde niños hasta adultos mayores, con el Dr.&nbsp;Keihani y su amable equipo.",
     hero_note:"Citas el mismo día para emergencias dentales. Aceptamos Denti-Cal, la mayoría de los planes PPO y planes HMO.",
     proof_rating:"Calificación en Google",proof_ct:"CT en 3D",proof_ct_sub:"Escaneos en el consultorio",
     namecard:"Dentista general y estético, USC School of Dentistry",
-    plan_eyebrow:"Planee su visita",plan_h2:"¿Qué necesita hoy?",plan_note:"Elija una opción para ver por dónde empezar.",
+    plan_eyebrow:"Planee su visita",plan_h2:"¿Qué necesita hoy?",
     c_pain:"Algo me duele",c_pain_s:"Dolor de muelas, hinchazón, un diente roto",
     c_check:"Revisión y limpieza",c_check_s:"Examen de rutina para usted o su familia",
     c_smile:"Una sonrisa más recta y brillante",c_smile_s:"Invisalign, blanqueamiento, carillas",
     c_missing:"Un diente perdido o dañado",c_missing_s:"Implantes, coronas, tratamientos de conducto",
-    svc_eyebrow:"Servicios",svc_h2:"Tratamientos que ofrece el Dr. Keihani",
-    svc_intro:"Odontología general, restauradora y estética. Elija un tratamiento para leer cómo funciona y qué esperar.",
+    svc_eyebrow:"Servicios",svc_h2:"Tratamientos que ofrece el Dr.&nbsp;Keihani",
+    
     s1:"Odontología general",s1p:"Revisiones, limpiezas y resinas que evitan que los problemas pequeños crezcan.",s1b:"Odontología en Oxnard",
     s2:"Emergencias dentales",s2p:"Citas el mismo día cuando un diente duele, se agrieta o se rompe de repente.",s2b:"Urgencias dentales Oxnard",
     s3p:"Alineadores transparentes que enderezan los dientes sin brackets de metal.",s3b:"Invisalign en Oxnard",
@@ -995,7 +1009,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
     s11:"Terapia para la ATM (mandíbula)",s11p:"Atención para el dolor de mandíbula, los chasquidos y el apretar los dientes.",s11b:"ATM en Oxnard",
     s12:"Muelas del juicio",s12p:"Exámenes y extracción cuando las muelas del juicio no tienen espacio, duelen o salen torcidas.",s12b:"Muelas del juicio Oxnard",
     doc_eyebrow:"Conozca a su dentista",doc_role:"Dentista general y estético",
-    doc_p1:"El Dr. Keihani completó su formación en la USC School of Dentistry y trabajó como dentista general en Beverly Hills antes de atender a pacientes en Oxnard.",
+    doc_p1:"El Dr.&nbsp;Keihani completó su formación en la USC School of Dentistry y trabajó como dentista general en Beverly Hills antes de atender a pacientes en Oxnard.",
     doc_p2:"Ofrece una gama completa de tratamientos generales, restauradores y estéticos para pacientes desde niños hasta adultos mayores. En su visita, espere un examen completo y suave.",
     member:"Miembro de",
     rev_eyebrow:"Directo de Google",rev_h2:"Nuestros pacientes lo dicen mejor",rev_badge:"979 reseñas en Google",ans_call:"Llame al (805) 604-9999",rev_more:"Leer todas las reseñas de Google",
@@ -1007,7 +1021,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
     pay_eyebrow:"Seguros y pagos",pay_h2:"Seguros y financiamiento",
     pay_intro:"Si su seguro no aparece en la lista, llame a nuestro consultorio para confirmar su cobertura.",
     pay1:"Seguros que aceptamos",pay1b:"La mayoría de los planes PPO",pay1c:"Llamar para revisar mi plan",
-    pay2:"Opciones de financiamiento",pay2p:"Trabajamos con varias compañías de financiamiento, como CareCredit y LendingClub, para que pueda pagar su tratamiento dental a plazos.",doc_cap:"Dr. Kourosh Keihani, DDS",pay2c:"Opciones de financiamiento dental en Oxnard",
+    pay2:"Opciones de financiamiento",pay2p:"Trabajamos con varias compañías de financiamiento, como CareCredit y LendingClub, para que pueda pagar su tratamiento dental a plazos.",doc_cap:"Dr.&nbsp;Kourosh Keihani, DDS",pay2c:"Opciones de financiamiento dental en Oxnard",
     faq_eyebrow:"Antes de reservar",faq_h2:"Preguntas de nuestros pacientes",
     q1:"¿Aceptan pacientes nuevos?",a1:"Sí. Reserve en línea o llame a nuestro consultorio para pedir una cita.",
     q2:"¿Aceptan mi seguro?",a2:"Aceptamos Denti-Cal, la mayoría de los planes PPO y planes HMO. Si su plan no aparece en la lista, llame a nuestro consultorio para confirmar su cobertura.",
@@ -1080,7 +1094,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   window.addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(frame);}},{passive:true});frame();
   document.querySelectorAll(".services,.tech,.reviews,.choices,.pay,.stats").forEach(function(g){Array.prototype.forEach.call(g.children,function(c,i){c.style.setProperty("--i",i);});});
   function countUp(el){var rv=el.closest&&el.closest(".rvx");if(rv)rv.classList.add("counting");var to=parseFloat(el.dataset.count),dec=+el.dataset.dec||0;if(reduce){el.textContent=to.toFixed(dec);return;}var t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/4500),e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
-  var nums=document.querySelectorAll(".num[data-count]");if(!reduce&&"IntersectionObserver" in window){Array.prototype.forEach.call(nums,function(n){n.textContent=(0).toFixed(+n.dataset.dec||0);});}
+  var nums=document.querySelectorAll(".num[data-count]");if(!reduce&&"IntersectionObserver" in window){Array.prototype.forEach.call(nums,function(n){n.textContent=(0).toFixed(+n.dataset.dec||0);});(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){Array.prototype.forEach.call(nums,function(n){var t=n.textContent;n.style.display="inline-block";n.textContent=(+n.dataset.count).toFixed(+n.dataset.dec||0);var w=n.offsetWidth,fs=parseFloat(getComputedStyle(n).fontSize)||16;n.textContent=t;if(w)n.style.minWidth=(w/fs).toFixed(3)+"em";});});}
   if("IntersectionObserver" in window){var cio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){countUp(en.target);cio.unobserve(en.target);}});},{threshold:1,rootMargin:"0px 0px -12% 0px"});nums.forEach(function(n){cio.observe(n);});}
   var items=document.querySelectorAll(".rise");
   if("IntersectionObserver" in window){
