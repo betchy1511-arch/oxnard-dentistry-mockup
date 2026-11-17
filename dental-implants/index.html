@@ -735,14 +735,39 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
 @keyframes ipBond{from{opacity:0;transform:scale(.8);transform-origin:230px 350px}60%{opacity:1}to{opacity:.85;transform:none;transform-origin:230px 350px}}
 @keyframes ipFade{from{opacity:0}to{opacity:1}}
 
-.ip-why h2,.ip-opts h2,.ip-graft h2{max-width:900px}
+.ip-opts h2,.ip-graft h2{max-width:900px}
+.ip-why h2,.ip-fit h2,.ip-cost h2{font-size:clamp(28px,3vw,44px)}
+@media (min-width:1101px){.ip-why h2,.ip-fit h2{white-space:nowrap}.ip-cost h2{white-space:nowrap;font-size:clamp(28px,2.55vw,38px)}}
+.ip-why-grid{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ip-why-grid li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;align-items:start;background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:24px 26px}
+.ip-wic{width:56px;height:56px;border-radius:16px;background:var(--deep);color:#9FE0D4;display:grid;place-items:center}
+.ip-wic svg{width:26px;height:26px}
+.ip-why-grid h3{margin:4px 0 8px;white-space:nowrap}
+.ip-why-grid p{font-size:15.5px;color:var(--ink2)}
+.ip-why-cta{margin-top:26px}
+.ip-fit-intro{max-width:820px;margin-top:16px}
+.ip-fit-cards{margin-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ip-fc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:10px}
+.ip-fc-top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.ip-fc-ic{width:46px;height:46px;border-radius:14px;background:#9FE0D4;color:var(--deep);display:grid;place-items:center;flex:none}
+.ip-fc-ic svg{width:22px;height:22px}
+.ip-fc-k{font-size:26px;font-weight:600;letter-spacing:-.02em;color:#fff}
+.ip-fc-n{margin-left:auto;font-size:13px;font-weight:700;color:#8FD6C8}
+.ip-fc h3{color:#9FE0D4;font-size:18px}
+.ip-fc p{color:#C9DCD9;font-size:15.5px}
+.ip-fit-foot2{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)}
+.ip-fit-foot2 p{color:#DCEBE8;max-width:620px;font-size:15.5px}
+@media (max-width:1100px){.ip-why-grid h3{white-space:normal}}
+@media (max-width:900px){.ip-fit-cards{grid-template-columns:1fr}}
+@media (max-width:700px){.ip-why-grid{grid-template-columns:1fr}.ip-why-grid li{grid-template-columns:46px minmax(0,1fr);padding:20px}.ip-wic{width:46px;height:46px}.ip-why-cta .btn,.ip-fit-foot2 .btn{width:100%;justify-content:flex-start}}
+
 .ip-why-list{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .ip-why-list li{padding:6px 26px 4px;border-left:1px solid var(--line)}
 .ip-why-list li:first-child{padding-left:0;border-left:0}
 .ip-no{display:block;font-size:54px;font-weight:700;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px var(--teal);margin-bottom:18px}
 .ip-why-list h3{margin-bottom:10px}
 .ip-why-list p{font-size:15.5px;color:var(--ink2)}
-.ip-why a,.ip-graft a,.ip-cost a:not(.btn):not(.btn-small){font-weight:700;color:#1F5F58;text-decoration:underline;text-underline-offset:3px}
+.ip-why a:not(.btn),.ip-graft a,.ip-cost a:not(.btn):not(.btn-small){font-weight:700;color:#1F5F58;text-decoration:underline;text-underline-offset:3px}
 
 .ip-fit-intro{max-width:760px;margin-top:16px}
 .ip-fit-rows{margin-top:34px;border-top:1px solid rgba(255,255,255,.14)}
@@ -750,7 +775,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
 .ip-fit-k{font-size:clamp(34px,3.6vw,48px);font-weight:600;letter-spacing:-.03em;color:#9FE0D4;line-height:1}
 .ip-fit-row h3{color:#fff;margin-bottom:8px}
 .ip-fit-row p{color:#C9DCD9;max-width:820px}
-.ip-fit a{color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:#9FE0D4;text-underline-offset:3px}
+.ip-fit a:not(.btn){color:#fff;font-weight:700;text-decoration:underline;text-decoration-color:#9FE0D4;text-underline-offset:3px}
 .ip-fit-foot{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .ip-fit-foot p{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:18px 22px;color:#DCEBE8;font-size:15.5px}
 
@@ -958,12 +983,8 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
 <section class="panel rise ip-why" aria-labelledby="ip-why-h">
   <span class="eyebrow" data-i18n="ip_why_e">Why patients choose us</span>
   <h2 id="ip-why-h" data-i18n="ip_why_h2">Why Oxnard Patients Choose Us for Implants</h2>
-  <ol class="ip-why-list">
-    <li><span class="ip-no" aria-hidden="true">01</span><h3 data-i18n="ip_w1">Planning on 3D Imaging, Not Guesswork</h3><p data-i18n="ip_w1p">Our cone beam CT scanner maps your bone, nerves, and sinuses in three dimensions before anything is scheduled. Precision planning means fewer surprises during surgery and a smoother recovery after it. It&#39;s part of how <a href="https://oxdentistry.com/blog/modern-dental-technology-transforms-patient-care/">modern dental technology changes patient care</a> here.</p></li>
-    <li><span class="ip-no" aria-hidden="true">02</span><h3 data-i18n="ip_w2">One Office, Start to Finish</h3><p data-i18n="ip_w2p">Consultation, placement, and the final crown happen in the same office, so you are not sent across town between steps.</p></li>
-    <li><span class="ip-no" aria-hidden="true">03</span><h3 data-i18n="ip_w3">Honest Candidacy Answers</h3><p data-i18n="ip_w3p">If a bridge or denture would serve you better, you&#39;ll hear it at the consultation, along with why.</p></li>
-    <li><span class="ip-no" aria-hidden="true">04</span><h3 data-i18n="ip_w4">Financing Built for Real Budgets</h3><p data-i18n="ip_w4p">Implants are an investment. Financing through companies like CareCredit and LendingClub can turn them into a monthly payment instead of a lump sum.</p></li>
-  </ol>
+  <ol class="ip-why-grid"><li><span class="ip-wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><circle cx="12" cy="12" r="3.5"/></svg></span><div><h3 data-i18n="ip_w1">Planning on 3D Imaging, Not Guesswork</h3><p data-i18n="ip_w1p">Our cone beam CT scanner maps your bone, nerves, and sinuses in three dimensions before anything is scheduled. Precision planning means fewer surprises during surgery and a smoother recovery after it. It&#39;s part of how <a href="https://oxdentistry.com/blog/modern-dental-technology-transforms-patient-care/">modern dental technology changes patient care</a> here.</p></div></li><li><span class="ip-wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5M10 10h4M12 8v4"/></svg></span><div><h3 data-i18n="ip_w2">One Office, Start to Finish</h3><p data-i18n="ip_w2p">Consultation, placement, and the final crown happen in the same office, so you are not sent across town between steps.</p></div></li><li><span class="ip-wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12l2.2 2.2L15.5 9.5"/></svg></span><div><h3 data-i18n="ip_w3">Honest Candidacy Answers</h3><p data-i18n="ip_w3p">If a bridge or denture would serve you better, you&#39;ll hear it at the consultation, along with why.</p></div></li><li><span class="ip-wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2M7 6V4h10v2"/></svg></span><div><h3 data-i18n="ip_w4">Financing Built for Real Budgets</h3><p data-i18n="ip_w4p">Implants are an investment. Financing through companies like CareCredit and LendingClub can turn them into a monthly payment instead of a lump sum.</p></div></li></ol>
+  <div class="hero-actions ip-why-cta"><a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a><a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call">Call (805) 604-9999</span></a></div>
 </section>
 
 <section class="panel rise" id="dr-keihani" aria-labelledby="doc-h">
@@ -1007,15 +1028,8 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   <span class="eyebrow" data-i18n="ip_fit_e">Before anything else</span>
   <h2 id="ip-fit-h" data-i18n="ip_fit_h2">Are Implants Right for You? An Honest Answer First</h2>
   <p class="lead ip-fit-intro" data-i18n="ip_fit_in">Implants aren&#39;t automatically the answer for every missing tooth, and a consultation here starts with that honesty. Three things decide your candidacy:</p>
-  <div class="ip-fit-rows">
-    <div class="ip-fit-row"><span class="ip-fit-k" data-i18n="ip_f1k">Gums</span><div><h3 data-i18n="ip_f1">Your gum health comes first</h3><p data-i18n="ip_f1p">Active gum disease has to be treated before implant surgery, because implants need healthy gums the same way teeth do. Treating it first protects your investment.</p></div></div>
-    <div class="ip-fit-row"><span class="ip-fit-k" data-i18n="ip_f2k">Bone</span><div><h3 data-i18n="ip_f2">Bone loss usually has a solution</h3><p data-i18n="ip_f2p">If your jawbone has shrunk since losing the tooth, that rarely rules you out; it usually just adds a step. Bone grafting rebuilds the foundation, and we&#39;ll show you on your 3D scan exactly what&#39;s needed and why.</p></div></div>
-    <div class="ip-fit-row"><span class="ip-fit-k" data-i18n="ip_f3k">Fit</span><div><h3 data-i18n="ip_f3">Sometimes another option genuinely fits better</h3><p data-i18n="ip_f3p">Health conditions, budget, or timeline can make a bridge or a well-made denture the smarter choice for you, and we&#39;d rather tell you that than sell you an implant. Our guide to <a href="https://oxdentistry.com/blog/would-dental-implants-really-be-your-better-choice/">whether dental implants are really your better choice</a> walks through the honest comparison.</p></div></div>
-  </div>
-  <div class="ip-fit-foot">
-    <p data-i18n="ip_fit_t">Just had a tooth pulled? Timing matters too: our guide to <a href="https://oxdentistry.com/blog/emergency-tooth-extraction-healing/">healing after a tooth extraction</a> explains the window between extraction and implant placement.</p>
-    <p data-i18n="ip_fit_now">Lost a tooth today? Call <a href="tel:+18056049999">(805) 604-9999</a> for a same-day emergency visit.</p>
-  </div>
+  <div class="ip-fit-cards"><div class="ip-fc"><div class="ip-fc-top"><span class="ip-fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5c-2-2-6-2-7 1-1 4 1 7 2 11 .5 2 2 3 2.5 0L11 13h2l1.5 4c.5 3 2 2 2.5 0 1-4 3-7 2-11-1-3-5-3-7-1z"/></svg></span><span class="ip-fc-k" data-i18n="ip_f1k">Gums</span><span class="ip-fc-n" aria-hidden="true">01</span></div><h3 data-i18n="ip_f1">Your gum health comes first</h3><p data-i18n="ip_f1p">Active gum disease has to be treated before implant surgery, because implants need healthy gums the same way teeth do. Treating it first protects your investment.</p></div><div class="ip-fc"><div class="ip-fc-top"><span class="ip-fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 3a3 3 0 0 0-2.8 4L7 14.2A3 3 0 1 0 9.8 17L17 9.8A3 3 0 1 0 17 3z"/></svg></span><span class="ip-fc-k" data-i18n="ip_f2k">Bone</span><span class="ip-fc-n" aria-hidden="true">02</span></div><h3 data-i18n="ip_f2">Bone loss usually has a solution</h3><p data-i18n="ip_f2p">If your jawbone has shrunk since losing the tooth, that rarely rules you out; it usually just adds a step. Bone grafting rebuilds the foundation, and we&#39;ll show you on your 3D scan exactly what&#39;s needed and why.</p></div><div class="ip-fc"><div class="ip-fc-top"><span class="ip-fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 7h10M7 12h10M7 17h6"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></span><span class="ip-fc-k" data-i18n="ip_f3k">Fit</span><span class="ip-fc-n" aria-hidden="true">03</span></div><h3 data-i18n="ip_f3">Sometimes another option genuinely fits better</h3><p data-i18n="ip_f3p">Health conditions, budget, or timeline can make a bridge or a well-made denture the smarter choice for you, and we&#39;d rather tell you that than sell you an implant. Our guide to <a href="https://oxdentistry.com/blog/would-dental-implants-really-be-your-better-choice/">whether dental implants are really your better choice</a> walks through the honest comparison.</p></div></div>
+  <div class="ip-fit-foot2"><p data-i18n="ip_fit_t">Just had a tooth pulled? Timing matters too: our guide to <a href="https://oxdentistry.com/blog/emergency-tooth-extraction-healing/">healing after a tooth extraction</a> explains the window between extraction and implant placement.</p><div class="hero-actions on-dark"><a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a><a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call">Call (805) 604-9999</span></a></div></div>
 </section>
 
 <section class="panel rise ip-opts" aria-labelledby="ip-opts-h">
@@ -1074,7 +1088,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   </div>
 </section>
 
-<section class="panel rise ip-cost" id="insurance" aria-labelledby="ip-cost-h">
+<section class="panel rise ip-cost" id="cost" aria-labelledby="ip-cost-h">
   <div class="ip-cost-grid">
     <div class="ip-cost-tx">
       <span class="eyebrow" data-i18n="ip_cost_e">Cost, insurance and financing</span>
@@ -1092,10 +1106,6 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
       <p class="ip-q-total" data-i18n="ip_q_tot">Covered together in one written quote, so you see the full price before you approve it.</p>
     </div>
   </div>
-  <div class="ip-cost-blocks">
-        <div class="ip-cb"><h3 data-i18n="ip_ins_h">Straight Talk About Insurance</h3><p data-i18n="ip_ins_p">Many plans still treat implants as elective and cover only parts of treatment, like the crown or the extraction. We verify exactly what your plan pays before you decide; our guide to <a href="https://oxdentistry.com/blog/denti-cal-ppo-hmo-in-oxnard-ca-whats-actually-covered-and-what-youll-pay-out-of-pocket/">Denti-Cal, PPO, and HMO coverage in Oxnard</a> explains the differences.</p><a class="btn-small" href="tel:+18056049999" data-i18n="pay1c">Call to Check My Plan</a></div>
-        <div class="ip-cb"><h3 data-i18n="ip_fin_h">Monthly Payments</h3><p data-i18n="ip_fin_p">We work with multiple financing companies, including CareCredit and LendingClub. Ask us to show you the numbers per month, not just the total; seeing the monthly number often makes the decision clearer.</p><div class="ip-cb-row"><div class="fin-logos"><img src="../img/carecredit-logo.jpg" alt="CareCredit" width="360" height="47" loading="lazy"><img src="../img/lending-club-logo.jpg" alt="LendingClub" width="360" height="55" loading="lazy"></div><a class="btn-small" href="https://oxdentistry.com/financing-options/" data-i18n="pay2c">Oxnard dental financing options</a></div></div>
-      </div>
   <div class="ip-cta">
     <h2 data-i18n="ip_cta_h">Find Out If Implants Are Right for You</h2>
     <p data-i18n="ip_cta_p">One consultation gets you a 3D scan, an honest recommendation, and a written all-in quote. No pressure, no obligation, and if a simpler option fits you better, that&#39;s what we&#39;ll recommend.</p>
@@ -1103,6 +1113,26 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   </div>
 </section>
 
+<section class="panel rise" id="insurance" aria-labelledby="pay-h">
+  <div class="ins">
+    <div class="ins-intro">
+      <span class="eyebrow" data-i18n="pay_eyebrow">Insurance and payment</span>
+      <h2 id="pay-h" data-i18n="pay_h2">Insurance and Financing</h2>
+      <p data-i18n="pay_intro">If your insurance is not listed, please call our office to confirm coverage.</p>
+      <a class="btn btn-call ins-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="pay1c">Call to Check My Plan</span></a>
+    </div>
+    <div class="ins-card ins-plans">
+      <h3 data-i18n="pay1">Insurance We Accept</h3>
+      <ul class="ins-list"><li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M6.5 12.5l3.6 3.6 7.4-8"/></svg><span>Denti-Cal</span></li><li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M6.5 12.5l3.6 3.6 7.4-8"/></svg><span data-i18n="pay1b">Most PPO plans</span></li><li><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M6.5 12.5l3.6 3.6 7.4-8"/></svg><span>HMOs</span></li></ul>
+    </div>
+    <div class="ins-card ins-fin">
+      <h3 data-i18n="pay2">Financing Options</h3>
+      <p data-i18n="pay2p">We work with multiple financing companies, including CareCredit and LendingClub, so you can spread dental payments over time.</p>
+      <div class="fin-logos"><img src="../img/carecredit-logo.jpg" alt="CareCredit" width="360" height="47" loading="lazy"><img src="../img/lending-club-logo.jpg" alt="LendingClub" width="360" height="55" loading="lazy"></div>
+      <a class="btn-small" href="https://oxdentistry.com/financing-options/" data-i18n="pay2c">Oxnard dental financing options</a>
+    </div>
+  </div>
+</section>
 <section class="panel deep rise" id="faq" aria-labelledby="faq-h">
   <div class="faq-head"><span class="eyebrow" data-i18n="faq_eyebrow">Before you book</span><h2 id="faq-h" data-i18n="faq_h2">Questions Patients Ask Us</h2></div>
   <div class="faq">
