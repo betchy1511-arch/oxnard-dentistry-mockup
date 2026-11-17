@@ -941,6 +941,9 @@ html[lang="es"] .ip-quote h3{white-space:normal}
 h1,h2,h3,figcaption,.eyebrow{text-wrap:balance}
 p,li{text-wrap:pretty}
 
+/* space-fix */
+a.float-cta{position:fixed}
+
 /* generic service pages (17 Nov 2026) */
 .sp-fig{padding:16px}
 /* hero diagram motion, same timings as the implants diagram (ipPost / ipCrown / ipBond / ipFade) */
@@ -1560,6 +1563,10 @@ var cur=location.pathname.replace(/index\.html$/,'');li.querySelectorAll('.sub a
 (function(){var tl=document.querySelector(".ip-tabs");if(!tl)return;var t=[].slice.call(tl.querySelectorAll(".ip-tab"));
 function sel(b,f){t.forEach(function(x){var on=x===b;x.setAttribute("aria-selected",on?"true":"false");x.tabIndex=on?0:-1;var p=document.getElementById(x.getAttribute("aria-controls"));if(p)p.hidden=!on;});if(f)b.focus();b.scrollIntoView&&tl.scrollWidth>tl.clientWidth&&b.scrollIntoView({block:"nearest",inline:"nearest"});}
 t.forEach(function(b,i){b.addEventListener("click",function(){sel(b);});b.addEventListener("keydown",function(e){var n=null;if(e.key==="ArrowRight")n=t[(i+1)%t.length];else if(e.key==="ArrowLeft")n=t[(i-1+t.length)%t.length];else if(e.key==="Home")n=t[0];else if(e.key==="End")n=t[t.length-1];if(n){e.preventDefault();sel(n,true);}});});})();
+</script>
+<script>/* space-fix: equal title heights per row */
+(function(){function eq(){[['li:has(>.ip-node)','h3'],['.ip-fc','h3'],['.ip-why-grid li','h3']].forEach(function(d){var g=new Map();document.querySelectorAll(d[0]).forEach(function(it){var h=it.querySelector(d[1]);if(!h)return;var p=it.parentElement;if(!g.has(p))g.set(p,[]);g.get(p).push(h)});g.forEach(function(hs){hs.forEach(function(x){x.style.minHeight=''});if(innerWidth<1101)return;var rows={};hs.forEach(function(x){var t=Math.round(x.getBoundingClientRect().top+scrollY);(rows[t]=rows[t]||[]).push(x)});Object.keys(rows).forEach(function(k){var r=rows[k];if(r.length<2)return;var m=Math.max.apply(null,r.map(function(x){return x.offsetHeight}));if(r.some(function(x){return x.offsetHeight<m}))r.forEach(function(x){x.style.minHeight=m+'px'})})})})}
+addEventListener('load',eq);addEventListener('resize',eq);if(document.fonts)document.fonts.ready.then(eq);new MutationObserver(function(){requestAnimationFrame(eq)}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});})();
 </script>
 </body>
 </html>
