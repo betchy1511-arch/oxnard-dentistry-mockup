@@ -710,6 +710,31 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   .panel.deep .rail-bar i{background:#8FD6C8}
   .choices+.rail-bar{margin-bottom:18px}
 }
+
+/* es-ins-fix */html[lang="es"] #insurance h2{font-size:clamp(26px,2.5vw,38px);overflow-wrap:anywhere}
+/* Services dropdown (17 Nov 2026) */
+/* nav-menu-fix */.nav-pill .menu{align-items:center}
+@media (max-width:960px){.nav-pill .menu.open{max-height:calc(100svh - 290px);overflow-y:auto;overscroll-behavior:contain}}
+.menu .has-sub{position:relative;display:flex;align-items:center;gap:2px}
+.sub-toggle{background:none;border:0;color:inherit;cursor:pointer;width:26px;height:26px;display:grid;place-items:center;border-radius:8px;padding:0}
+.sub-toggle svg{width:16px;height:16px;transition:transform .2s}
+.has-sub.open .sub-toggle svg{transform:rotate(180deg)}
+.menu .sub{display:none;position:absolute;left:-18px;top:calc(100% + 14px);min-width:250px;list-style:none;margin:0;padding:10px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 50px -22px rgba(13,50,54,.45);z-index:70}
+.menu .sub::before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px}
+.has-sub:hover>.sub,.has-sub:focus-within>.sub,.has-sub.open>.sub{display:block}
+.nav-pill .menu .sub a,.menu .sub a{display:block;color:var(--ink)!important;padding:9px 12px;border-radius:10px;font-size:15px;font-weight:500;border:0;white-space:nowrap}
+.nav-pill .menu .sub a::after{display:none}
+.menu .sub a:hover,.menu .sub a[aria-current]{background:var(--teal-soft);color:#1F5F58!important}
+@media (max-width:960px){
+  .menu.open .has-sub{flex-wrap:wrap;border-bottom:1px solid var(--line)}
+  .menu.open .has-sub>a{flex:1;border-bottom:0!important}
+  .menu.open .sub-toggle{width:44px;height:44px;color:var(--ink)}
+  .menu.open .sub{position:static;display:none;box-shadow:none;border:0;padding:0 0 10px 10px;min-width:0;width:100%}
+  .menu.open .has-sub.open>.sub{display:block}
+  .menu.open .has-sub:hover>.sub,.menu.open .has-sub:focus-within>.sub{display:none}
+  .menu.open .has-sub.open:focus-within>.sub,.menu.open .has-sub.open:hover>.sub{display:block}
+  .menu.open .sub a{padding:11px 10px;border-bottom:0}
+}
 </style>
 </head>
 <body>
@@ -732,7 +757,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
     <nav aria-label="Main">
       <ul class="menu" id="menu">
         <li><a href="#top" aria-current="page" data-i18n="nav_home">Home</a></li>
-        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+        <li class="has-sub"><a href="#services" data-i18n="nav_services">Services</a><button type="button" class="sub-toggle" aria-expanded="false" aria-controls="sub-services" aria-label="Show services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><ul class="sub" id="sub-services"><li><a href="/oxnard-dentistry-mockup/emergency-dentistry/" data-i18n="s2">Emergency Dentistry</a></li><li><a href="/oxnard-dentistry-mockup/invisalign/" data-i18n="s3x">Invisalign</a></li><li><a href="/oxnard-dentistry-mockup/dental-implants/" data-i18n="s4">Dental Implants</a></li><li><a href="/oxnard-dentistry-mockup/dental-crown/" data-i18n="s5">Dental Crowns</a></li><li><a href="/oxnard-dentistry-mockup/root-canal/" data-i18n="s6">Root Canal</a></li><li><a href="/oxnard-dentistry-mockup/periodontics/" data-i18n="s7">Gum Care</a></li><li><a href="/oxnard-dentistry-mockup/cosmetic-dentistry/" data-i18n="s8">Cosmetic Dentistry</a></li><li><a href="/oxnard-dentistry-mockup/veneers/" data-i18n="s9">Veneers</a></li><li><a href="/oxnard-dentistry-mockup/teeth-whitening/" data-i18n="s10">Teeth Whitening</a></li><li><a href="/oxnard-dentistry-mockup/tmj-therapy/" data-i18n="s11">TMJ Therapy</a></li><li><a href="/oxnard-dentistry-mockup/wisdom-teeth/" data-i18n="s12">Wisdom Teeth</a></li></ul></li>
         <li><a href="#dr-keihani" data-i18n="nav_doctor">Dr.&nbsp;Keihani</a></li>
         <li><a href="#insurance" data-i18n="nav_insurance">Insurance</a></li>
         <li><a href="#reviews" data-i18n="nav_reviews">Reviews</a></li>
@@ -821,7 +846,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   </div>
   <div class="answer" aria-live="polite">
     <p id="answer-text">We accept same-day appointments for dental emergencies. Call us now, or book a time online.</p>
-    <div class="answer-acts"><a class="btn-small" id="answer-link" href="https://oxdentistry.com/services/emergency-dentistry/">Same-day emergency appointments in Oxnard</a><a class="btn-small ans-call" href="tel:+18056049999" data-i18n="ans_call">Call (805) 604-9999</a></div>
+    <div class="answer-acts"><a class="btn-small" id="answer-link" href="/oxnard-dentistry-mockup/emergency-dentistry/">Same-day emergency appointments in Oxnard</a><a class="btn-small ans-call" href="tel:+18056049999" data-i18n="ans_call">Call (805) 604-9999</a></div>
   </div>
 </section>
 
@@ -831,17 +856,17 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
   </div>
   <div class="services">
     <article class="svc"><img class="svc-img" src="img/svc-general.jpg" alt="Dental mirror checking teeth on a dental model" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s1">General Dentistry</h3><p data-i18n="s1p">Check-ups, cleanings and fillings that keep small problems small.</p><a class="btn-small" href="https://oxdentistry.com/services/" data-i18n="s1b">Oxnard Dental Services</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-emergency.jpg" alt="Gloved hands pointing to decay on a cross-section tooth model" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s2">Emergency Dentistry</h3><p data-i18n="s2p">Same-day appointments when a tooth suddenly hurts, cracks or breaks.</p><a class="btn-small" href="https://oxdentistry.com/services/emergency-dentistry/" data-i18n="s2b">Oxnard Emergency Dentist</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-invisalign.jpg" alt="Clear aligner trays on blue dental models" width="640" height="400" loading="lazy"><div class="svc-body"><h3>Invisalign</h3><p data-i18n="s3p">Clear aligners that straighten teeth without metal brackets.</p><a class="btn-small" href="https://oxdentistry.com/services/invisalign/" data-i18n="s3b">Invisalign in Oxnard</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-implants.jpg" alt="Dental implant post with a crown attached" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s4">Dental Implants</h3><p data-i18n="s4p">A fixed replacement for a missing tooth, anchored in the jaw.</p><a class="btn-small" href="https://oxdentistry.com/services/dental-implants/" data-i18n="s4b">Dental Implant Options</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-crowns.jpg" alt="Tooth prepared for a crown on a stone dental model" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s5">Dental Crowns</h3><p data-i18n="s5p">A custom cap that protects and restores a cracked or weakened tooth.</p><a class="btn-small" href="https://oxdentistry.com/services/dental-crown/" data-i18n="s5b">Oxnard Dental Crowns</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-rootcanal.jpg" alt="Endodontic file in a molar under a dental dam" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s6">Root Canal</h3><p data-i18n="s6p">Treats infection inside a tooth so it can often be saved.</p><a class="btn-small" href="https://oxdentistry.com/services/root-canal/" data-i18n="s6b">Oxnard Root Canals</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-gums.jpg" alt="Dental floss around teeth on a dental model" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s7">Gum Care</h3><p data-i18n="s7p">Treatment for gums that bleed, swell or pull back from the teeth.</p><a class="btn-small" href="https://oxdentistry.com/services/periodontics/" data-i18n="s7b">Oxnard Gum Treatment</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-cosmetic.jpg" alt="Dental jaw model showing a full set of teeth" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s8">Cosmetic Dentistry</h3><p data-i18n="s8p">Improve the shape, color and balance of your smile.</p><a class="btn-small" href="https://oxdentistry.com/services/cosmetic-dentistry/" data-i18n="s8b">Oxnard Cosmetic Dentistry</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-veneers.jpg" alt="Thin porcelain veneer shells on a dark surface" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s9">Veneers</h3><p data-i18n="s9p">Thin shells that cover chips, gaps and stains on front teeth.</p><a class="btn-small" href="https://oxdentistry.com/services/veneers/" data-i18n="s9b">Veneers in Oxnard</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-whitening.jpg" alt="A row of tooth shade tabs" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s10">Teeth Whitening</h3><p data-i18n="s10p">Brighten teeth dulled by coffee, tea and food stains.</p><a class="btn-small" href="https://oxdentistry.com/services/teeth-whitening/" data-i18n="s10b">Oxnard Teeth Whitening</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-tmj.jpg" alt="Plaster bite model of upper and lower teeth" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s11">TMJ Therapy</h3><p data-i18n="s11p">Care for jaw pain, clicking and clenching.</p><a class="btn-small" href="https://oxdentistry.com/services/tmj-therapy/" data-i18n="s11b">Oxnard TMJ Therapy</a></div></article>
-    <article class="svc"><img class="svc-img" src="img/svc-wisdom.jpg" alt="Panoramic X-ray showing wisdom teeth" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s12">Wisdom Teeth</h3><p data-i18n="s12p">Exams and removal when wisdom teeth crowd, ache or come in sideways.</p><a class="btn-small" href="https://oxdentistry.com/services/wisdom-teeth/" data-i18n="s12b">Oxnard Wisdom Teeth</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-emergency.jpg" alt="Gloved hands pointing to decay on a cross-section tooth model" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s2">Emergency Dentistry</h3><p data-i18n="s2p">Same-day appointments when a tooth suddenly hurts, cracks or breaks.</p><a class="btn-small" href="/oxnard-dentistry-mockup/emergency-dentistry/" data-i18n="s2b">Oxnard Emergency Dentist</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-invisalign.jpg" alt="Clear aligner trays on blue dental models" width="640" height="400" loading="lazy"><div class="svc-body"><h3>Invisalign</h3><p data-i18n="s3p">Clear aligners that straighten teeth without metal brackets.</p><a class="btn-small" href="/oxnard-dentistry-mockup/invisalign/" data-i18n="s3b">Invisalign in Oxnard</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-implants.jpg" alt="Dental implant post with a crown attached" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s4">Dental Implants</h3><p data-i18n="s4p">A fixed replacement for a missing tooth, anchored in the jaw.</p><a class="btn-small" href="/oxnard-dentistry-mockup/dental-implants/" data-i18n="s4b">Dental Implant Options</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-crowns.jpg" alt="Tooth prepared for a crown on a stone dental model" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s5">Dental Crowns</h3><p data-i18n="s5p">A custom cap that protects and restores a cracked or weakened tooth.</p><a class="btn-small" href="/oxnard-dentistry-mockup/dental-crown/" data-i18n="s5b">Oxnard Dental Crowns</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-rootcanal.jpg" alt="Endodontic file in a molar under a dental dam" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s6">Root Canal</h3><p data-i18n="s6p">Treats infection inside a tooth so it can often be saved.</p><a class="btn-small" href="/oxnard-dentistry-mockup/root-canal/" data-i18n="s6b">Oxnard Root Canals</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-gums.jpg" alt="Dental floss around teeth on a dental model" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s7">Gum Care</h3><p data-i18n="s7p">Treatment for gums that bleed, swell or pull back from the teeth.</p><a class="btn-small" href="/oxnard-dentistry-mockup/periodontics/" data-i18n="s7b">Oxnard Gum Treatment</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-cosmetic.jpg" alt="Dental jaw model showing a full set of teeth" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s8">Cosmetic Dentistry</h3><p data-i18n="s8p">Improve the shape, color and balance of your smile.</p><a class="btn-small" href="/oxnard-dentistry-mockup/cosmetic-dentistry/" data-i18n="s8b">Oxnard Cosmetic Dentistry</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-veneers.jpg" alt="Thin porcelain veneer shells on a dark surface" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s9">Veneers</h3><p data-i18n="s9p">Thin shells that cover chips, gaps and stains on front teeth.</p><a class="btn-small" href="/oxnard-dentistry-mockup/veneers/" data-i18n="s9b">Veneers in Oxnard</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-whitening.jpg" alt="A row of tooth shade tabs" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s10">Teeth Whitening</h3><p data-i18n="s10p">Brighten teeth dulled by coffee, tea and food stains.</p><a class="btn-small" href="/oxnard-dentistry-mockup/teeth-whitening/" data-i18n="s10b">Oxnard Teeth Whitening</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-tmj.jpg" alt="Plaster bite model of upper and lower teeth" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s11">TMJ Therapy</h3><p data-i18n="s11p">Care for jaw pain, clicking and clenching.</p><a class="btn-small" href="/oxnard-dentistry-mockup/tmj-therapy/" data-i18n="s11b">Oxnard TMJ Therapy</a></div></article>
+    <article class="svc"><img class="svc-img" src="img/svc-wisdom.jpg" alt="Panoramic X-ray showing wisdom teeth" width="640" height="400" loading="lazy"><div class="svc-body"><h3 data-i18n="s12">Wisdom Teeth</h3><p data-i18n="s12p">Exams and removal when wisdom teeth crowd, ache or come in sideways.</p><a class="btn-small" href="/oxnard-dentistry-mockup/wisdom-teeth/" data-i18n="s12b">Oxnard Wisdom Teeth</a></div></article>
   </div>
 </section>
 
@@ -942,7 +967,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
           <span class="vis-k" data-i18n="d_phone">Phone</span>
           <a href="tel:+18056049999">(805) 604-9999</a>
         </div>
-        <a class="vis-same" href="https://oxdentistry.com/services/emergency-dentistry/"><span class="vis-bolt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><b data-i18n="st_same_b">Same day</b><small data-i18n="st_same">Appointments for dental emergencies</small></span></a>
+        <a class="vis-same" href="/oxnard-dentistry-mockup/emergency-dentistry/"><span class="vis-bolt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span><b data-i18n="st_same_b">Same day</b><small data-i18n="st_same">Appointments for dental emergencies</small></span></a>
       </div>
       <div class="vis-acts"><a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a><a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call_short">Call Us</span></a></div>
     </div>
@@ -1054,14 +1079,14 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
     f_pages:"Páginas",f_fin:"Financiamiento",f_follow:"Síganos",f_priv:"Política de privacidad",f_terms:"Términos y condiciones",f_access:"Accesibilidad"
   };
   var PICK={
-    pain:{en:["We accept same-day appointments for dental emergencies. Call us now, or book a time online.","Same-day emergency appointments in Oxnard","https://oxdentistry.com/services/emergency-dentistry/"],
-          es:["Aceptamos citas el mismo día para emergencias dentales. Llámenos ahora o reserve una cita en línea.","Citas de emergencia el mismo día en Oxnard","https://oxdentistry.com/services/emergency-dentistry/"]},
+    pain:{en:["We accept same-day appointments for dental emergencies. Call us now, or book a time online.","Same-day emergency appointments in Oxnard","/oxnard-dentistry-mockup/emergency-dentistry/"],
+          es:["Aceptamos citas el mismo día para emergencias dentales. Llámenos ahora o reserve una cita en línea.","Citas de emergencia el mismo día en Oxnard","/oxnard-dentistry-mockup/emergency-dentistry/"]},
     checkup:{en:["A routine exam and cleaning can catch small problems early. Book a check-up for yourself or your family.","Check-ups and cleanings in Oxnard","https://oxdentistry.com/services/"],
           es:["Un examen y una limpieza de rutina pueden detectar los problemas pequeños a tiempo. Reserve una revisión para usted o su familia.","Revisiones y limpiezas en Oxnard","https://oxdentistry.com/services/"]},
-    smile:{en:["Clear aligners, whitening and veneers each change a smile in a different way. Book a visit to talk through your options.","Cosmetic dentist in Oxnard, CA","https://oxdentistry.com/services/cosmetic-dentistry/"],
-          es:["Los alineadores transparentes, el blanqueamiento y las carillas cambian la sonrisa de maneras distintas. Reserve una visita para hablar de sus opciones.","Dentista estético en Oxnard, CA","https://oxdentistry.com/services/cosmetic-dentistry/"]},
-    missing:{en:["An implant, crown or root canal can restore or replace a damaged or missing tooth. The office has a 3D CT scanner for treatment planning.","How dental implants work","https://oxdentistry.com/services/dental-implants/"],
-          es:["Un implante, una corona o un tratamiento de conducto pueden restaurar o reemplazar un diente dañado o perdido. El consultorio cuenta con un escáner CT en 3D para planear el tratamiento.","Cómo funcionan los implantes dentales","https://oxdentistry.com/services/dental-implants/"]}
+    smile:{en:["Clear aligners, whitening and veneers each change a smile in a different way. Book a visit to talk through your options.","Cosmetic dentist in Oxnard, CA","/oxnard-dentistry-mockup/cosmetic-dentistry/"],
+          es:["Los alineadores transparentes, el blanqueamiento y las carillas cambian la sonrisa de maneras distintas. Reserve una visita para hablar de sus opciones.","Dentista estético en Oxnard, CA","/oxnard-dentistry-mockup/cosmetic-dentistry/"]},
+    missing:{en:["An implant, crown or root canal can restore or replace a damaged or missing tooth. The office has a 3D CT scanner for treatment planning.","How dental implants work","/oxnard-dentistry-mockup/dental-implants/"],
+          es:["Un implante, una corona o un tratamiento de conducto pueden restaurar o reemplazar un diente dañado o perdido. El consultorio cuenta con un escáner CT en 3D para planear el tratamiento.","Cómo funcionan los implantes dentales","/oxnard-dentistry-mockup/dental-implants/"]}
   };
   var lang="en", pick="pain", EN={};
   var burger=document.querySelector(".burger"),menu=document.getElementById("menu"),fl=document.querySelector(".float-cta");
@@ -1193,6 +1218,15 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
     upd();setTimeout(upd,600);
   });
 })();
+</script>
+<script>
+/* Services dropdown toggle (17 Nov 2026) */
+(function(){var li=document.querySelector('.has-sub');if(!li)return;var b=li.querySelector('.sub-toggle');
+function set(o){li.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',(document.documentElement.lang==='es'?(o?'Ocultar servicios':'Ver servicios'):(o?'Hide services':'Show services')));}
+b.addEventListener('click',function(e){e.stopPropagation();set(!li.classList.contains('open'));});
+document.addEventListener('click',function(e){if(!li.contains(e.target))set(false);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&li.classList.contains('open')){set(false);b.focus();}});
+var cur=location.pathname.replace(/index\.html$/,'');li.querySelectorAll('.sub a').forEach(function(a){if(a.getAttribute('href')===cur)a.setAttribute('aria-current','page');});})();
 </script>
 </body>
 </html>
