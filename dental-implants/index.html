@@ -843,6 +843,24 @@ html[lang="es"] .ip-quote h3{white-space:normal}
 .ip-q-lines i{flex:1;border-bottom:2px dotted var(--line);transform:translateY(4px)}
 .ip-q-lines svg{width:22px;height:22px;flex:none;fill:none;stroke:var(--teal);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 .ip-q-total{margin-top:18px;background:var(--deep);color:#fff;border-radius:14px;padding:14px 18px;font-weight:600;font-size:15.5px}
+/* cost section v2 (17 Nov): centred head + quote equation row */
+.ip-cost-head{text-align:center;max-width:820px;margin:0 auto}
+.ip-cost-head .eyebrow{justify-content:center}
+.ip-cost-head .lead{margin-top:14px;text-wrap:balance}
+.ip-eq-wrap{margin-top:34px;background:var(--soft);border:1px solid var(--line);border-radius:26px;padding:28px}
+.ip-eq-head{text-align:center;margin-bottom:22px}
+.ip-eq-head .ip-q-tag{display:block;margin-bottom:6px}
+.ip-eq-head h3{font-size:clamp(20px,1.8vw,26px);white-space:normal}
+.ip-eq{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr) 34px minmax(0,1fr) 34px minmax(0,1.25fr);align-items:stretch}
+.ip-eq-t,.ip-eq-res{border-radius:20px;padding:24px 18px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-wrap:balance;text-align:center;gap:12px;font-weight:600;font-size:16px}
+.ip-eq-t{background:#fff;border:1.5px solid #6F918B;color:var(--ink)}
+.ip-eq-res{background:var(--deep);color:#fff}
+.ip-eq-res .ip-eq-tot{font-size:16px;font-weight:600;line-height:1.45;color:#fff}
+.ip-eq-ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--teal-soft);color:var(--teal)}
+.ip-eq-res .ip-eq-ic{background:#9FE0D4;color:var(--deep)}
+.ip-eq-ic svg{width:26px;height:26px}
+.ip-eq-op{display:grid;place-items:center;font-size:28px;font-weight:700;color:var(--cta)}
+@media (max-width:900px){.ip-eq{grid-template-columns:1fr;gap:4px}.ip-eq-op{height:30px}.ip-eq-t,.ip-eq-res{flex-direction:row;justify-content:flex-start;text-align:left}.ip-eq-wrap{padding:20px 16px}}
 .ip-cta{margin-top:28px;background:var(--deep);color:#E8F1EF;border-radius:24px;padding:44px 32px;text-align:center}
 .ip-cta h2{color:#fff;font-size:clamp(28px,3vw,40px)}
 .ip-cta p{max-width:720px;margin:14px auto 0;color:#C9DCD9}
@@ -1096,22 +1114,10 @@ html[lang="es"] .ip-quote h3{white-space:normal}
 </section>
 
 <section class="panel rise ip-cost" id="cost" aria-labelledby="ip-cost-h">
-  <div class="ip-cost-grid">
-    <div class="ip-cost-tx">
-      <span class="eyebrow" data-i18n="ip_cost_e">Cost, insurance and financing</span>
-      <h2 id="ip-cost-h" data-i18n="ip_cost_h2">What Dental Implants Cost in Oxnard</h2>
-      <p class="lead" data-i18n="ip_cost_in">Implant pricing depends on how many teeth you&#39;re replacing, whether grafting is needed, and the type of final restoration, so a single honest number doesn&#39;t exist until you&#39;ve been examined. Here&#39;s what we promise instead.</p>
-    </div>
-    <div class="ip-quote" aria-labelledby="ip-q-h">
-      <span class="ip-q-tag" data-i18n="ip_q_tag">After your consultation</span>
-      <h3 id="ip-q-h" data-i18n="ip_q_h">A Written Quote Before You Decide</h3>
-      <ul class="ip-q-lines">
-        <li><span data-i18n="ip_q1">The implant</span><i aria-hidden="true"></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></li>
-        <li><span data-i18n="ip_q2">Any bone grafting needed</span><i aria-hidden="true"></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></li>
-        <li><span data-i18n="ip_q3">The final crown or bridge</span><i aria-hidden="true"></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></li>
-      </ul>
-      <p class="ip-q-total" data-i18n="ip_q_tot">Covered together in one written quote, so you see the full price before you approve it.</p>
-    </div>
+  <div class="ip-cost-head"><span class="eyebrow" data-i18n="ip_cost_e">Cost, insurance and financing</span><h2 id="ip-cost-h" data-i18n="ip_cost_h2">What Dental Implants Cost in Oxnard</h2><p class="lead" data-i18n="ip_cost_in">Implant pricing depends on how many teeth you&#39;re replacing, whether grafting is needed, and the type of final restoration, so a single honest number doesn&#39;t exist until you&#39;ve been examined. Here&#39;s what we promise instead.</p></div>
+  <div class="ip-eq-wrap">
+    <div class="ip-eq-head"><span class="ip-q-tag" data-i18n="ip_q_tag">After your consultation</span><h3 id="ip-q-h" data-i18n="ip_q_h">A Written Quote Before You Decide</h3></div>
+    <ul class="ip-eq"><li class="ip-eq-t"><span class="ip-eq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 3h6v4H9zM10 7h4l-.5 13a1.5 1.5 0 0 1-3 0z"/><path d="M9.6 10.5l4.8-1M9.7 13.5l4.6-1M9.8 16.5l4.4-1"/></svg></span><span data-i18n="ip_q1">The implant</span></li><li class="ip-eq-op" aria-hidden="true">+</li><li class="ip-eq-t"><span class="ip-eq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 15c3-1 4-5 9-5s6 4 9 5v5H3z"/><circle cx="9" cy="16" r=".9" fill="currentColor"/><circle cx="13" cy="15" r=".9" fill="currentColor"/><circle cx="16" cy="17" r=".9" fill="currentColor"/></svg></span><span data-i18n="ip_q2">Any bone grafting needed</span></li><li class="ip-eq-op" aria-hidden="true">+</li><li class="ip-eq-t"><span class="ip-eq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5c-2-2-6-2-7 1-1 4 1 7 2 11 .5 2 2 3 2.5 0L11 13h2l1.5 4c.5 3 2 2 2.5 0 1-4 3-7 2-11-1-3-5-3-7-1z"/></svg></span><span data-i18n="ip_q3">The final crown or bridge</span></li><li class="ip-eq-op" aria-hidden="true">=</li><li class="ip-eq-res"><span class="ip-eq-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13l2 2 4-4"/></svg></span><p class="ip-eq-tot" data-i18n="ip_q_tot">Covered together in one written quote, so you see the full price before you approve it.</p></li></ul>
   </div>
   <div class="ip-cta">
     <h2 data-i18n="ip_cta_h">Find Out If Implants Are Right for You</h2>
