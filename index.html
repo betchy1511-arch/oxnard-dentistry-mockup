@@ -675,7 +675,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
 @media (max-width:700px){.vis-map{height:300px}.vis-map iframe{top:-140px;height:calc(100% + 140px)}}
 @media (prefers-reduced-motion:reduce){.js .rvx .rvx-fill{width:96%;transition:none}}
 
-/* v9 (13 Nov): Beth's 5 notes */
+/* layout note */
 @media (min-width:900px){.hero .glass{max-width:760px}.hero h1 em{white-space:nowrap}}
 .rvx-num,.num[data-count]{font-variant-numeric:tabular-nums}
 @media (min-width:701px){.rvx-big{flex-wrap:nowrap}.rvx-meta{min-width:0}}
@@ -691,11 +691,7 @@ html[lang="es"] .wk.today::after{content:"Hoy"}
 .vis-maplink{position:absolute;left:16px;top:16px;z-index:2;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 18px 8px 10px;border-radius:999px;background:var(--deep);color:#fff;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid rgba(255,255,255,.85);box-shadow:0 8px 22px -8px rgba(0,0,0,.45)}
 .vis-maplink .bi{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center}.vis-maplink svg{width:15px;height:15px}
 .vis-maplink:hover{background:var(--teal,#1C6B66)}
-/* Swipe rows (15 Nov 2026). Client comment on Omni, relayed by Dimi (Omni BC to-do 10500869836):
-   "more scrollable sideways in mobile ... if you are on mobile it goes on forever". Applied here too, at
-   Beth's call. Phones only: the 12 service cards and the 4 visit-reason cards swipe sideways, the next
-   card peeks in, and a thin bar under each row shows how far along you are. Tablet and desktop unchanged.
-   Hours, insurance, contact details and the footer stay stacked on purpose. */
+/* layout note */
 @media (max-width:640px){
   .services,.choices{display:flex!important;flex-flow:row nowrap!important;gap:12px!important;grid-template-columns:none!important;
     overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
