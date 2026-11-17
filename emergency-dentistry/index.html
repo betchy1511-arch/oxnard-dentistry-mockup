@@ -969,6 +969,15 @@ a.float-cta{position:fixed}
 @media (max-width:900px){.ip-track[style]{grid-template-columns:1fr 1fr!important}}
 @media (max-width:700px){.ip-track[style]{grid-template-columns:1fr!important}}
 </style>
+<style>/* no-reveal: Beth 18 Nov 2026, sections and content are simply there; hero diagram keeps its animation */
+.js .rise,.js .panel.rise,.js .rise h2,.js .rise .svc,.js .rise .tcard,.js .rise .rev,.js .rise .choice,.js .rise .pay-card,.js .stats.rise .stat,.js .rise .doc-photo img,.js .rise .tcard .timg{opacity:1!important;transform:none!important;transition:none!important}
+.js .rise h2{clip-path:none!important}
+.js .rise .doc-photo img,.js .rise .tcard .timg{clip-path:inset(0 0 0 0 round 24px)!important}
+.rvx-q.is-on .w,.rvx-q.is-on figcaption{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}
+.js .rvx .rvx-fill{width:96%!important;transition:none!important}
+.js #insurance .ck path{stroke-dashoffset:0!important;transition:none!important}
+.js #insurance .ck circle{transform:none!important;opacity:1!important;transition:none!important}
+</style>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="skip">Skip to main content</a>
@@ -1453,8 +1462,8 @@ a.float-cta{position:fixed}
   }
   window.addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(frame);}},{passive:true});frame();
   document.querySelectorAll(".services,.tech,.reviews,.choices,.pay,.stats").forEach(function(g){Array.prototype.forEach.call(g.children,function(c,i){c.style.setProperty("--i",i);});});
-  function countUp(el){var rv=el.closest&&el.closest(".rvx");if(rv)rv.classList.add("counting");var to=parseFloat(el.dataset.count),dec=+el.dataset.dec||0;if(reduce){el.textContent=to.toFixed(dec);return;}var t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/4500),e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
-  var nums=document.querySelectorAll(".num[data-count]");if(!reduce&&"IntersectionObserver" in window){Array.prototype.forEach.call(nums,function(n){n.textContent=(0).toFixed(+n.dataset.dec||0);});(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){Array.prototype.forEach.call(nums,function(n){var t=n.textContent;n.style.display="inline-block";n.textContent=(+n.dataset.count).toFixed(+n.dataset.dec||0);var w=n.offsetWidth,fs=parseFloat(getComputedStyle(n).fontSize)||16;n.textContent=t;if(w)n.style.minWidth=(w/fs).toFixed(3)+"em";});});}
+  function countUp(el){var rv=el.closest&&el.closest(".rvx");if(rv)rv.classList.add("counting");var to=parseFloat(el.dataset.count),dec=+el.dataset.dec||0;if(true){el.textContent=to.toFixed(dec);return;}var t0=null;function step(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/4500),e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+  var nums=document.querySelectorAll(".num[data-count]");if(false&&"IntersectionObserver" in window){Array.prototype.forEach.call(nums,function(n){n.textContent=(0).toFixed(+n.dataset.dec||0);});(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){Array.prototype.forEach.call(nums,function(n){var t=n.textContent;n.style.display="inline-block";n.textContent=(+n.dataset.count).toFixed(+n.dataset.dec||0);var w=n.offsetWidth,fs=parseFloat(getComputedStyle(n).fontSize)||16;n.textContent=t;if(w)n.style.minWidth=(w/fs).toFixed(3)+"em";});});}
   if("IntersectionObserver" in window){var cio=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){countUp(en.target);cio.unobserve(en.target);}});},{threshold:1,rootMargin:"0px 0px -12% 0px"});nums.forEach(function(n){cio.observe(n);});}
   var items=document.querySelectorAll(".rise");
   if("IntersectionObserver" in window){
