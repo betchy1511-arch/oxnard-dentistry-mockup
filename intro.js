@@ -1,15 +1,15 @@
 /* Oxnard Dentistry entry intro (18 Nov 2026).
    Plays once per visit (browser tab session), on whichever page the visitor lands on.
-   MODE "session" = every new visit; MODE "first" = only a visitor's very first visit.
-   ?intro=1 forces a replay (for review). Skipped for prefers-reduced-motion. */
+   MODE "session" = once per browser tab (a new tab or window = a new visit); MODE "first" = only a visitor's very first visit.
+   ?intro=1 forces a replay (for review). Always skipped for prefers-reduced-motion. */
 (function(){
   var MODE = "session";
   var KEY = "oxd-intro-seen";
   var q = location.search;
-  var force = /[?&]intro=1/.test(q);
-  var store = MODE === "first" ? window.localStorage : window.sessionStorage;
-  try { if (!force && store.getItem(KEY)) return; } catch(e) {}
-  if (!force && window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var force = new URLSearchParams(q).get("intro") === "1";
+  var store = null;
+  try { store = MODE === "first" ? window.localStorage : window.sessionStorage; if (!force && store.getItem(KEY)) return; } catch(e) { store = null; }
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (!document.body || !document.body.animate) return;
 
   var me = document.currentScript && document.currentScript.src || "";
@@ -36,8 +36,8 @@
 
   var tooth = '<svg class="oi-tooth" viewBox="0 0 64 72" aria-hidden="true"><path d="M32 8c-6-5-15-6-21-1C4 13 6 25 9 34c2 7 3 14 4 22 1 7 4 11 7 11 4 0 5-6 6-12 1-5 3-9 6-9s5 4 6 9c1 6 2 12 6 12 3 0 6-4 7-11 1-8 2-15 4-22 3-9 5-21-2-27-6-5-15-4-21 1z" fill="#fff"/><path d="M44 14c3 1 6 4 6 9" stroke="#E6A23C" stroke-width="3" stroke-linecap="round" fill="none"/></svg>';
   var ov = document.createElement("div");
-  ov.id = "oxd-intro"; ov.setAttribute("role", "presentation");
-  ov.innerHTML = '<div class="oi-mid"><span class="oi-logo"><img src="' + base + 'img/logo.png" alt="" width="584" height="153"></span>'
+  ov.id = "oxd-intro"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true"); ov.setAttribute("aria-label", es ? "Introducción de Oxnard Dentistry" : "Oxnard Dentistry intro");
+  ov.innerHTML = '<div class="oi-mid" aria-hidden="true"><span class="oi-logo"><img src="' + base + 'img/logo.png" alt="" width="584" height="153"></span>'
     + '<span class="oi-word">' + (es ? "Preparando su visita" : "Preparing your visit") + '</span><span class="oi-bar"><i></i></span></div>'
     + tooth + '<button type="button" class="oi-skip">' + (es ? "Saltar" : "Skip intro") + '</button>';
   var W = innerWidth, H = innerHeight, small = W < 700;
@@ -50,17 +50,22 @@
   });
   document.documentElement.classList.add("oxd-intro-on");
   document.body.appendChild(ov);
-  try { store.setItem(KEY, "1"); } catch(e) {}
+  try { if (store) store.setItem(KEY, "1"); } catch(e) {}
+  var prevFocus = document.activeElement;
+  var skip = ov.querySelector(".oi-skip");
+  try { skip.focus({preventScroll:true}); } catch(e) {}
 
   var done = false, anims = [];
   function finish(){
     if (done) return; done = true;
     anims.forEach(function(a){ try { a.finish(); } catch(e) {} });
     var f = ov.animate([{opacity:1},{opacity:0}], {duration:450, easing:"ease-out", fill:"forwards"});
-    f.onfinish = function(){ ov.remove(); st.remove(); document.documentElement.classList.remove("oxd-intro-on"); };
+    f.onfinish = function(){ ov.remove(); st.remove(); document.documentElement.classList.remove("oxd-intro-on"); document.removeEventListener("keydown", onKey, true);
+      try { if (prevFocus && prevFocus !== document.body && prevFocus.focus) prevFocus.focus({preventScroll:true}); else document.body.focus(); } catch(e) {} };
   }
-  ov.querySelector(".oi-skip").addEventListener("click", finish);
-  document.addEventListener("keydown", function k(e){ if (e.key === "Escape") { finish(); document.removeEventListener("keydown", k); } });
+  skip.addEventListener("click", finish);
+  function onKey(e){ if (done) return; if (e.key === "Escape") { finish(); } else if (e.key === "Tab") { e.preventDefault(); skip.focus(); } }
+  document.addEventListener("keydown", onKey, true);
 
   var mid = ov.querySelector(".oi-mid"), bar = ov.querySelector(".oi-bar i"), th = ov.querySelector(".oi-tooth");
   anims.push(bar.animate([{transform:"scaleX(0)"},{transform:"scaleX(1)"}], {duration:1300, easing:"cubic-bezier(.6,0,.2,1)", fill:"forwards"}));
