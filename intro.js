@@ -42,7 +42,7 @@
     + '<span class="oi-word">' + (es ? "Preparando su visita" : "Preparing your visit") + '</span><span class="oi-bar"><i></i></span></div>'
     + tooth + '<button type="button" class="oi-skip">' + (es ? "Saltar" : "Skip intro") + '</button>';
   var W = innerWidth, H = innerHeight, small = W < 700;
-  var cw = small ? Math.min(80, W * 0.2) : Math.max(110, Math.min(165, W * 0.11, H * 0.18));
+  var cw = small ? Math.min(72, W * 0.18) : Math.max(110, Math.min(165, W * 0.11, H * 0.18));
   ov.style.setProperty("--cw", cw + "px");
   var cards = IMGS.map(function(n){
     var c = document.createElement("div"); c.className = "oi-card";
@@ -73,7 +73,7 @@
   anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.92},{opacity:0,transform:"translate(-50%,-50%) scale(1.3)"}], {delay:1200, duration:2700, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
 
   var N = cards.length, half = N / 2;
-  var R = small ? Math.min(W * 0.4, H * 0.3) : Math.min(H * 0.36, W * 0.3);
+  var R = small ? Math.min(W * 0.4, H * 0.3) + 14 : Math.min(H * 0.36, W * 0.3);
   var spread = Math.min(W * 0.86, (cw + 18) * half);
   var far = Math.hypot(W, H) * 0.75;
   cards.forEach(function(c, i){
@@ -85,12 +85,14 @@
     var rad0 = a0 * Math.PI / 180, rad1 = a1 * Math.PI / 180;
     var rx = Math.cos(rad0) * R, ry = Math.sin(rad0) * R;
     var r2x = Math.cos(rad1) * R, r2y = Math.sin(rad1) * R;
+    var am = (a0 + a1) / 2, radm = am * Math.PI / 180, rmx = Math.cos(radm) * R, rmy = Math.sin(radm) * R;
     var ox = Math.cos(rad1) * far, oy = Math.sin(rad1) * far;
     var tilt = (i % 2 ? 1 : -1) * (6 + (i * 7) % 12);
     anims.push(c.animate([
       {opacity:0, transform:"translate(" + sx + "px," + rowY + "px) rotate(" + tilt * 2 + "deg) scale(.8)"},
       {opacity:1, transform:"translate(" + rowX + "px," + rowY + "px) rotate(0deg) scale(.9)", offset:.22},
       {opacity:1, transform:"translate(" + rx + "px," + ry + "px) rotate(" + (a0 + 90) + "deg) scale(.85)", offset:.45},
+      {opacity:1, transform:"translate(" + rmx + "px," + rmy + "px) rotate(" + (am + 90) + "deg) scale(.85)", offset:.625},
       {opacity:1, transform:"translate(" + r2x + "px," + r2y + "px) rotate(" + (a1 + 90) + "deg) scale(.85)", offset:.8},
       {opacity:0, transform:"translate(" + ox + "px," + oy + "px) rotate(" + (a1 + 90 + tilt * 3) + "deg) scale(2.2)"}
     ], {delay:800 + j * 45, duration:3800, easing:"cubic-bezier(.55,0,.25,1)", fill:"forwards"}));
