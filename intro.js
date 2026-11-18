@@ -70,7 +70,7 @@
   var mid = ov.querySelector(".oi-mid"), bar = ov.querySelector(".oi-bar i"), th = ov.querySelector(".oi-tooth");
   anims.push(bar.animate([{transform:"scaleX(0)"},{transform:"scaleX(1)"}], {duration:1300, easing:"cubic-bezier(.6,0,.2,1)", fill:"forwards"}));
   anims.push(mid.animate([{opacity:0,transform:"translate(-50%,-46%)"},{opacity:1,transform:"translate(-50%,-50%)",offset:.15},{opacity:1,transform:"translate(-50%,-50%)",offset:.75},{opacity:0,transform:"translate(-50%,-58%) scale(.92)"}], {duration:1700, easing:"ease", fill:"forwards"}));
-  anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.75},{opacity:0,transform:"translate(-50%,-50%) scale(2.6)"}], {delay:1200, duration:2600, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
+  anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.75},{opacity:0,transform:"translate(-50%,-50%) scale(1.3)"}], {delay:1200, duration:2600, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
 
   var N = cards.length, half = N / 2;
   var R = small ? Math.min(W * 0.4, H * 0.3) : Math.min(H * 0.36, W * 0.3);
