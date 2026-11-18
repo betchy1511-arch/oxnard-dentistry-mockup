@@ -22,12 +22,12 @@
   var css = ""
   + "#oxd-intro{position:fixed;inset:0;z-index:9999;background:radial-gradient(120% 90% at 50% 45%,#124247 0%,#0D3236 55%,#08262A 100%);overflow:hidden;display:grid;place-items:center;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#fff}"
   + "#oxd-intro .oi-mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:18px;z-index:3;text-align:center}"
-  + "#oxd-intro .oi-logo{background:#fff;border-radius:28px;padding:22px 38px;box-shadow:0 12px 40px rgba(0,0,0,.35)}"
-  + "#oxd-intro .oi-logo img{width:clamp(260px,30vw,420px);height:auto;display:block}@media(max-width:480px){#oxd-intro .oi-logo{padding:18px 26px;border-radius:22px}#oxd-intro .oi-logo img{width:min(270px,70vw)}}"
+  + "#oxd-intro .oi-logo{display:block;padding:9px;border-radius:999px;background:rgba(8,32,35,.55);border:1px solid rgba(255,255,255,.24);box-shadow:0 18px 44px rgba(0,0,0,.4)}#oxd-intro .oi-logo .oi-brand{display:block;background:#fff;border-radius:999px;padding:16px 36px}"
+  + "#oxd-intro .oi-logo img{width:clamp(240px,26vw,380px);height:auto;display:block}@media(max-width:480px){#oxd-intro .oi-logo{padding:7px}#oxd-intro .oi-logo .oi-brand{padding:12px 22px}#oxd-intro .oi-logo img{width:min(240px,62vw)}}"
   + "#oxd-intro .oi-word{font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#CFE5E1;white-space:nowrap}@media(max-width:480px){#oxd-intro .oi-word{letter-spacing:.2em;font-size:11px}}"
   + "#oxd-intro .oi-bar{width:220px;height:2px;background:rgba(255,255,255,.16);border-radius:2px;overflow:hidden}"
   + "#oxd-intro .oi-bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#2E8279,#E6A23C);transform-origin:left;transform:scaleX(0)}"
-  + "#oxd-intro .oi-tooth{position:absolute;left:50%;top:50%;background:#fff;border-radius:22px;padding:16px 24px;transform:translate(-50%,-50%) scale(.6);opacity:0;z-index:2;box-shadow:0 0 0 1px rgba(255,255,255,.4),0 0 46px rgba(230,162,60,.35),0 16px 40px rgba(0,0,0,.35)}#oxd-intro .oi-tooth img{display:block;width:clamp(220px,20vw,300px);height:auto}@media(max-width:699px){#oxd-intro .oi-tooth{padding:10px 14px;border-radius:16px}#oxd-intro .oi-tooth img{width:min(140px,36vw)}}"
+  + "#oxd-intro .oi-tooth{position:absolute;left:50%;top:50%;padding:8px;border-radius:999px;background:rgba(8,32,35,.55);border:1px solid rgba(255,255,255,.24);transform:translate(-50%,-50%) scale(.6);opacity:0;z-index:2;box-shadow:0 18px 44px rgba(0,0,0,.4)}#oxd-intro .oi-tooth .oi-brand{display:block;background:#fff;border-radius:999px;padding:12px 26px}#oxd-intro .oi-tooth img{display:block;width:clamp(200px,17vw,260px);height:auto}@media(max-width:699px){#oxd-intro .oi-tooth{padding:6px}#oxd-intro .oi-tooth .oi-brand{padding:8px 16px}#oxd-intro .oi-tooth img{width:min(130px,34vw)}}"
   + "#oxd-intro .oi-card{position:absolute;left:50%;top:50%;width:var(--cw);height:calc(var(--cw)*1.25);margin:calc(var(--cw)*-.625) 0 0 calc(var(--cw)*-.5);border-radius:14px;overflow:hidden;border:3px solid #fff;box-shadow:0 14px 30px rgba(0,0,0,.4);opacity:0;z-index:1;will-change:transform,opacity}"
   + "#oxd-intro .oi-card img{width:100%;height:100%;object-fit:cover;display:block}"
   + "#oxd-intro .oi-skip{position:absolute;right:20px;bottom:20px;z-index:4;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:9px 18px;font:600 14px/1 'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer}"
@@ -35,10 +35,10 @@
   + "html.oxd-intro-on,html.oxd-intro-on body{overflow:hidden}";
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 
-  var tooth = '<span class="oi-tooth" aria-hidden="true"><img src="' + base + 'img/logo.png" alt="" width="584" height="153"></span>';
+  var tooth = '<span class="oi-tooth" aria-hidden="true"><span class="oi-brand"><img src="' + base + 'img/logo.png" alt="" width="584" height="153"></span></span>';
   var ov = document.createElement("div");
   ov.id = "oxd-intro"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true"); ov.setAttribute("aria-label", es ? "Introducción de Oxnard Dentistry" : "Oxnard Dentistry intro");
-  ov.innerHTML = '<div class="oi-mid" aria-hidden="true"><span class="oi-logo"><img src="' + base + 'img/logo.png" alt="" width="584" height="153"></span>'
+  ov.innerHTML = '<div class="oi-mid" aria-hidden="true"><span class="oi-logo"><span class="oi-brand"><img src="' + base + 'img/logo.png" alt="" width="584" height="153"></span></span>'
     + '<span class="oi-word">' + (es ? "Preparando su visita" : "Preparing your visit") + '</span><span class="oi-bar"><i></i></span></div>'
     + tooth + '<button type="button" class="oi-skip">' + (es ? "Saltar" : "Skip intro") + '</button>';
   var W = innerWidth, H = innerHeight, small = W < 700;
@@ -70,7 +70,7 @@
   var mid = ov.querySelector(".oi-mid"), bar = ov.querySelector(".oi-bar i"), th = ov.querySelector(".oi-tooth");
   anims.push(bar.animate([{transform:"scaleX(0)"},{transform:"scaleX(1)"}], {duration:1300, easing:"cubic-bezier(.6,0,.2,1)", fill:"forwards"}));
   anims.push(mid.animate([{opacity:0,transform:"translate(-50%,-46%)"},{opacity:1,transform:"translate(-50%,-50%)",offset:.15},{opacity:1,transform:"translate(-50%,-50%)",offset:.75},{opacity:0,transform:"translate(-50%,-58%) scale(.92)"}], {duration:1700, easing:"ease", fill:"forwards"}));
-  anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.75},{opacity:0,transform:"translate(-50%,-50%) scale(1.3)"}], {delay:1200, duration:2600, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
+  anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.92},{opacity:0,transform:"translate(-50%,-50%) scale(1.3)"}], {delay:1200, duration:2700, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
 
   var N = cards.length, half = N / 2;
   var R = small ? Math.min(W * 0.4, H * 0.3) : Math.min(H * 0.36, W * 0.3);
