@@ -1694,10 +1694,10 @@ if(lab){[].forEach.call(lab.querySelectorAll('.lab-item'),function(b){b.addEvent
 (function(){
 var HS=[].slice.call(document.querySelectorAll('h2')).filter(function(h){return !h.closest('.ip-hero')&&!h.closest('#oxd-intro');});
 function avail(h){var p=h.parentElement,cs=getComputedStyle(p);return p.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);}
-function lines(h,W){var r=document.createRange();r.selectNodeContents(h);var rows={},L=h.getBoundingClientRect().left;[].forEach.call(r.getClientRects(),function(b){if(!b.width)return;var k=Math.round(b.top/4);rows[k]=Math.max(rows[k]||0,b.right-L);});
- return Object.keys(rows).map(function(k){return rows[k]/W;});}
+function lines(h,W){var r=document.createRange();r.selectNodeContents(h);var rows={};[].forEach.call(r.getClientRects(),function(b){if(!b.width)return;var k=Math.round(b.top/4),o=rows[k];rows[k]=o?{l:Math.min(o.l,b.left),r:Math.max(o.r,b.right)}:{l:b.left,r:b.right};});
+ return Object.keys(rows).map(function(k){return (rows[k].r-rows[k].l)/W;});}
 function unglue(h){if(h._gn){h._gn.nodeValue=h._gv;h._gn=null;}}function glue(h){var w=document.createTreeWalker(h,NodeFilter.SHOW_TEXT),n,last=null;while((n=w.nextNode())){if(/\S/.test(n.nodeValue))last=n;}if(!last)return false;var t=last.nodeValue,m=/ ([^\s]+\s*)$/.exec(t);if(!m)return false;h._gn=last;h._gv=t;last.nodeValue=t.slice(0,m.index)+' '+m[1];return true;}
-function fitOne(h){h.style.fontSize='';h.style.textWrap='';if(!h.offsetParent)return;unglue(h);var n0=lines(h,1).length;if(glue(h)&&lines(h,1).length>n0)unglue(h);var W=avail(h);if(W<120)return;
+function fitOne(h){h.style.fontSize='';h.style.textWrap='';if(!h.offsetParent)return;unglue(h);var n0=lines(h,1).length;if(glue(h)&&lines(h,1).length>n0)unglue(h);var W=avail(h);if(W<120)return;if(h._gn&&Math.max.apply(null,lines(h,W))>1.01)unglue(h);
  var v0=lines(h,W);if(v0.length<2)return;var base=parseFloat(getComputedStyle(h).fontSize),best=null,bs=Math.max.apply(null,v0)+0.05;
  h.style.textWrap='wrap';
  for(var fs=Math.round(base*0.92);fs<=Math.round(base*1.15);fs++){h.style.fontSize=fs+'px';var v=lines(h,W),mx=Math.max.apply(null,v),mn=Math.min.apply(null,v);
@@ -1706,7 +1706,7 @@ function fitOne(h){h.style.fontSize='';h.style.textWrap='';if(!h.offsetParent)re
 function fitAll(){HS.forEach(fitOne);}
 var t;function soon(){clearTimeout(t);t=setTimeout(fitAll,120);}
 fitAll();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAll);addEventListener('resize',soon);
-new MutationObserver(soon).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+new MutationObserver(function(){fitAll();}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 })();
 </script>
 </body>
