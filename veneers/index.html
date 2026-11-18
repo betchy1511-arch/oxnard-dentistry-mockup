@@ -1685,5 +1685,24 @@ var lab=document.querySelector('.lab');
 if(lab){[].forEach.call(lab.querySelectorAll('.lab-item'),function(b){b.addEventListener('click',function(){if(innerWidth>900)return;var st=lab.querySelector('.lab-stage').getBoundingClientRect();if(st.top<0||st.top>innerHeight*0.45){lab.querySelector('.lab-stage').scrollIntoView({block:'start',behavior:'smooth'});}});});}
 })();
 </script>
+<script id="hd-fit-js">
+(function(){
+var HS=[].slice.call(document.querySelectorAll('h2')).filter(function(h){return !h.closest('.ip-hero')&&!h.closest('#oxd-intro');});
+function avail(h){var p=h.parentElement,cs=getComputedStyle(p);return p.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);}
+function lines(h,W){var r=document.createRange();r.selectNodeContents(h);var rows={},L=h.getBoundingClientRect().left;[].forEach.call(r.getClientRects(),function(b){if(!b.width)return;var k=Math.round(b.top/4);rows[k]=Math.max(rows[k]||0,b.right-L);});
+ return Object.keys(rows).map(function(k){return rows[k]/W;});}
+function glue(h){var w=document.createTreeWalker(h,NodeFilter.SHOW_TEXT),n,last=null;while((n=w.nextNode())){if(/\S/.test(n.nodeValue))last=n;}if(!last)return;var t=last.nodeValue;if(/ [^\s]+\s*$/.test(t))last.nodeValue=t.replace(/ ([^\s]+\s*)$/,' $1');}
+function fitOne(h){h.style.fontSize='';h.style.textWrap='';if(!h.offsetParent)return;glue(h);var W=avail(h);if(W<120)return;
+ var v0=lines(h,W);if(v0.length<2)return;var base=parseFloat(getComputedStyle(h).fontSize),best=null,bs=Math.max.apply(null,v0)+0.05;
+ h.style.textWrap='wrap';
+ for(var fs=Math.round(base*0.92);fs<=Math.round(base*1.15);fs++){h.style.fontSize=fs+'px';var v=lines(h,W),mx=Math.max.apply(null,v),mn=Math.min.apply(null,v);
+  if(v.length>v0.length||mx>1.0||mn<0.35)continue;var sc=mx-Math.abs(fs/base-1)*0.25;if(sc>bs){bs=sc;best=fs;}}
+ if(best===null){h.style.fontSize='';h.style.textWrap='';}else{h.style.fontSize=best+'px';}}
+function fitAll(){HS.forEach(fitOne);}
+var t;function soon(){clearTimeout(t);t=setTimeout(fitAll,120);}
+fitAll();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitAll);addEventListener('resize',soon);
+new MutationObserver(soon).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
 </body>
 </html>
