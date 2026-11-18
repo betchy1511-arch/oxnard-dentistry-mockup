@@ -73,7 +73,7 @@
   anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.92},{opacity:0,transform:"translate(-50%,-50%) scale(1.3)"}], {delay:1200, duration:2700, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
 
   var N = cards.length, half = N / 2;
-  var R = small ? Math.min(W * 0.4, H * 0.3) + 14 : Math.min(H * 0.36, W * 0.3);
+  var R = small ? Math.min(Math.min(W * 0.4, H * 0.3) + 14, W / 2 - cw * 0.55) : Math.min(H * 0.36, W * 0.3);
   var spread = Math.min(W * 0.86, (cw + 18) * half);
   var far = Math.hypot(W, H) * 0.75;
   cards.forEach(function(c, i){
