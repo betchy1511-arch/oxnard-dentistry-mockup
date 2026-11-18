@@ -27,7 +27,7 @@
   + "#oxd-intro .oi-word{font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#CFE5E1;white-space:nowrap}@media(max-width:480px){#oxd-intro .oi-word{letter-spacing:.2em;font-size:11px}}"
   + "#oxd-intro .oi-bar{width:220px;height:2px;background:rgba(255,255,255,.16);border-radius:2px;overflow:hidden}"
   + "#oxd-intro .oi-bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#2E8279,#E6A23C);transform-origin:left;transform:scaleX(0)}"
-  + "#oxd-intro .oi-tooth{position:absolute;left:50%;top:50%;width:clamp(80px,10vw,130px);transform:translate(-50%,-50%) scale(.6);opacity:0;z-index:2;filter:drop-shadow(0 0 22px rgba(230,162,60,.45))}"
+  + "#oxd-intro .oi-tooth{position:absolute;left:50%;top:50%;background:#fff;border-radius:22px;padding:16px 24px;transform:translate(-50%,-50%) scale(.6);opacity:0;z-index:2;box-shadow:0 0 0 1px rgba(255,255,255,.4),0 0 46px rgba(230,162,60,.35),0 16px 40px rgba(0,0,0,.35)}#oxd-intro .oi-tooth img{display:block;width:clamp(220px,20vw,300px);height:auto}@media(max-width:699px){#oxd-intro .oi-tooth{padding:10px 14px;border-radius:16px}#oxd-intro .oi-tooth img{width:min(140px,36vw)}}"
   + "#oxd-intro .oi-card{position:absolute;left:50%;top:50%;width:var(--cw);height:calc(var(--cw)*1.25);margin:calc(var(--cw)*-.625) 0 0 calc(var(--cw)*-.5);border-radius:14px;overflow:hidden;border:3px solid #fff;box-shadow:0 14px 30px rgba(0,0,0,.4);opacity:0;z-index:1;will-change:transform,opacity}"
   + "#oxd-intro .oi-card img{width:100%;height:100%;object-fit:cover;display:block}"
   + "#oxd-intro .oi-skip{position:absolute;right:20px;bottom:20px;z-index:4;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:9px 18px;font:600 14px/1 'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer}"
@@ -35,14 +35,14 @@
   + "html.oxd-intro-on,html.oxd-intro-on body{overflow:hidden}";
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 
-  var tooth = '<svg class="oi-tooth" viewBox="0 0 64 72" aria-hidden="true"><path d="M32 8c-6-5-15-6-21-1C4 13 6 25 9 34c2 7 3 14 4 22 1 7 4 11 7 11 4 0 5-6 6-12 1-5 3-9 6-9s5 4 6 9c1 6 2 12 6 12 3 0 6-4 7-11 1-8 2-15 4-22 3-9 5-21-2-27-6-5-15-4-21 1z" fill="#fff"/><path d="M44 14c3 1 6 4 6 9" stroke="#E6A23C" stroke-width="3" stroke-linecap="round" fill="none"/></svg>';
+  var tooth = '<span class="oi-tooth" aria-hidden="true"><img src="' + base + 'img/logo.png" alt="" width="584" height="153"></span>';
   var ov = document.createElement("div");
   ov.id = "oxd-intro"; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-modal", "true"); ov.setAttribute("aria-label", es ? "Introducción de Oxnard Dentistry" : "Oxnard Dentistry intro");
   ov.innerHTML = '<div class="oi-mid" aria-hidden="true"><span class="oi-logo"><img src="' + base + 'img/logo.png" alt="" width="584" height="153"></span>'
     + '<span class="oi-word">' + (es ? "Preparando su visita" : "Preparing your visit") + '</span><span class="oi-bar"><i></i></span></div>'
     + tooth + '<button type="button" class="oi-skip">' + (es ? "Saltar" : "Skip intro") + '</button>';
   var W = innerWidth, H = innerHeight, small = W < 700;
-  var cw = small ? Math.min(92, W * 0.24) : Math.max(110, Math.min(165, W * 0.11, H * 0.18));
+  var cw = small ? Math.min(80, W * 0.2) : Math.max(110, Math.min(165, W * 0.11, H * 0.18));
   ov.style.setProperty("--cw", cw + "px");
   var cards = IMGS.map(function(n){
     var c = document.createElement("div"); c.className = "oi-card";
