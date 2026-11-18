@@ -394,7 +394,7 @@ header.site.scrolled .nav-pill .brand{background:transparent}
 .rvx-tab .av{width:30px;height:30px;font-size:13px}
 .rvx-tab[aria-pressed="true"]{border-color:var(--teal);color:var(--ink)}
 .rvx-bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--teal);transform:scaleX(0);transform-origin:left}
-.rvx-tab[aria-pressed="true"] .rvx-bar{animation:rvxBar 10s linear forwards}
+.rvx-tab[aria-pressed="true"] .rvx-bar{animation:rvxBar 6s linear forwards}
 .rvx-stage.paused .rvx-bar{animation-play-state:paused}
 @keyframes rvxBar{to{transform:scaleX(1)}}
 .lab-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:stretch}
@@ -1011,6 +1011,7 @@ a.float-cta{position:fixed}
 @media (max-width:899px){.proc .ip-fc{grid-template-columns:48px 40px minmax(0,1fr);column-gap:12px;padding:22px 4px}.proc .ip-fc-ic{width:40px;height:40px;border-radius:12px;grid-row:1 / span 2}.proc .ip-fc p{grid-column:2 / span 2;grid-row:3;margin-top:8px;font-size:16px}.proc-ring{width:50px;height:50px}}
 @media (prefers-reduced-motion:reduce){.proc .ip-fc,.proc-ring{transition:none}.proc-ring.draw path{animation:none}}
 </style>
+<style id="h1-fit">@media (min-width:700px){.ip-hero h1{text-wrap:wrap}}</style>
 </head>
 <body>
 <script src="../intro.js"></script>
@@ -1627,6 +1628,23 @@ rows.forEach(function(r,k){r.setAttribute('tabindex','0');r.addEventListener('mo
 L.addEventListener('mouseleave',function(){hover=false;byScroll();});
 addEventListener('scroll',onScroll,{passive:true});if(window.ResizeObserver)new ResizeObserver(function(){if(cur>=0)place(cur,false);}).observe(L);addEventListener('resize',function(){if(cur>=0)place(cur,false);});
 set(0);byScroll();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(cur>=0)place(cur,false);});})();
+</script>
+<script id="h1-fit-js">
+(function(){var h=document.querySelector('.ip-hero h1');if(!h)return;
+function lines(){var col=h.getBoundingClientRect().width,rows={},w=document.createTreeWalker(h,NodeFilter.SHOW_TEXT),n,r=document.createRange(),L=h.getBoundingClientRect().left;
+ while((n=w.nextNode())){for(var i=0;i<n.length;i++){r.setStart(n,i);r.setEnd(n,i+1);var b=r.getBoundingClientRect();if(!b.width)continue;var k=Math.round(b.top/8);rows[k]=Math.max(rows[k]||0,b.right-L);}}
+ var v=Object.keys(rows).map(function(k){return rows[k]/col;});return v;}
+var busy=false;
+function glue(){var w=document.createTreeWalker(h,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){var t=n.nodeValue.replace(/ (in|en) Oxnard, CA:/g,' $1 Oxnard, CA:');if(t!==n.nodeValue)n.nodeValue=t;}}
+function fit(){if(busy)return;busy=true;glue();h.style.fontSize='';h.style.textWrap='';if(innerWidth<700){busy=false;return;}
+ var max=parseFloat(getComputedStyle(h).fontSize),best=null,bestN=99;
+ for(var fs=max;fs>=Math.max(38,max*0.72);fs-=1){h.style.fontSize=fs+'px';var v=lines();if(Math.min.apply(null,v)<0.3)continue;
+  if(v.length<bestN){bestN=v.length;best=fs;}}
+ if(best===null){h.style.fontSize='';h.style.textWrap='balance';}else{h.style.fontSize=best+'px';}
+ busy=false;}
+var t;function soon(){clearTimeout(t);t=setTimeout(fit,60);}
+fit();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);addEventListener('resize',soon);
+new MutationObserver(function(){if(!busy)soon();}).observe(h,{childList:true,characterData:true,subtree:true});})();
 </script>
 </body>
 </html>
