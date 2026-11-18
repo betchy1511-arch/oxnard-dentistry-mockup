@@ -3,7 +3,7 @@
    MODE "session" = once per browser tab (a new tab or window = a new visit); MODE "first" = only a visitor's very first visit.
    ?intro=1 forces a replay (for review). Always skipped for prefers-reduced-motion. */
 (function(){
-  var MODE = "session";
+  var MODE = "first"; /* Beth 18 Nov: only a visitor's first time on the site, never again after */
   var KEY = "oxd-intro-seen";
   var q = location.search;
   var force = new URLSearchParams(q).get("intro") === "1";
@@ -21,12 +21,12 @@
   var css = ""
   + "#oxd-intro{position:fixed;inset:0;z-index:9999;background:radial-gradient(120% 90% at 50% 45%,#124247 0%,#0D3236 55%,#08262A 100%);overflow:hidden;display:grid;place-items:center;font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:#fff}"
   + "#oxd-intro .oi-mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:18px;z-index:3;text-align:center}"
-  + "#oxd-intro .oi-logo{background:#fff;border-radius:999px;padding:12px 26px;box-shadow:0 12px 40px rgba(0,0,0,.35)}"
-  + "#oxd-intro .oi-logo img{width:clamp(150px,18vw,220px);height:auto;display:block}"
+  + "#oxd-intro .oi-logo{background:#fff;border-radius:28px;padding:22px 38px;box-shadow:0 12px 40px rgba(0,0,0,.35)}"
+  + "#oxd-intro .oi-logo img{width:clamp(260px,30vw,420px);height:auto;display:block}@media(max-width:480px){#oxd-intro .oi-logo{padding:18px 26px;border-radius:22px}#oxd-intro .oi-logo img{width:min(270px,70vw)}}"
   + "#oxd-intro .oi-word{font-size:12px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#CFE5E1;white-space:nowrap}@media(max-width:480px){#oxd-intro .oi-word{letter-spacing:.2em;font-size:11px}}"
-  + "#oxd-intro .oi-bar{width:150px;height:2px;background:rgba(255,255,255,.16);border-radius:2px;overflow:hidden}"
+  + "#oxd-intro .oi-bar{width:220px;height:2px;background:rgba(255,255,255,.16);border-radius:2px;overflow:hidden}"
   + "#oxd-intro .oi-bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#2E8279,#E6A23C);transform-origin:left;transform:scaleX(0)}"
-  + "#oxd-intro .oi-tooth{position:absolute;left:50%;top:50%;width:clamp(64px,8vw,96px);transform:translate(-50%,-50%) scale(.6);opacity:0;z-index:2;filter:drop-shadow(0 0 22px rgba(230,162,60,.45))}"
+  + "#oxd-intro .oi-tooth{position:absolute;left:50%;top:50%;width:clamp(80px,10vw,130px);transform:translate(-50%,-50%) scale(.6);opacity:0;z-index:2;filter:drop-shadow(0 0 22px rgba(230,162,60,.45))}"
   + "#oxd-intro .oi-card{position:absolute;left:50%;top:50%;width:var(--cw);height:calc(var(--cw)*1.25);margin:calc(var(--cw)*-.625) 0 0 calc(var(--cw)*-.5);border-radius:14px;overflow:hidden;border:3px solid #fff;box-shadow:0 14px 30px rgba(0,0,0,.4);opacity:0;z-index:1;will-change:transform,opacity}"
   + "#oxd-intro .oi-card img{width:100%;height:100%;object-fit:cover;display:block}"
   + "#oxd-intro .oi-skip{position:absolute;right:20px;bottom:20px;z-index:4;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:9px 18px;font:600 14px/1 'Plus Jakarta Sans',system-ui,sans-serif;cursor:pointer}"
@@ -41,7 +41,7 @@
     + '<span class="oi-word">' + (es ? "Preparando su visita" : "Preparing your visit") + '</span><span class="oi-bar"><i></i></span></div>'
     + tooth + '<button type="button" class="oi-skip">' + (es ? "Saltar" : "Skip intro") + '</button>';
   var W = innerWidth, H = innerHeight, small = W < 700;
-  var cw = small ? 62 : Math.max(84, Math.min(120, W * 0.075));
+  var cw = small ? Math.min(92, W * 0.24) : Math.max(110, Math.min(165, W * 0.11, H * 0.18));
   ov.style.setProperty("--cw", cw + "px");
   var cards = IMGS.map(function(n){
     var c = document.createElement("div"); c.className = "oi-card";
@@ -53,7 +53,6 @@
   try { if (store) store.setItem(KEY, "1"); } catch(e) {}
   var prevFocus = document.activeElement;
   var skip = ov.querySelector(".oi-skip");
-  try { skip.focus({preventScroll:true}); } catch(e) {}
 
   var done = false, anims = [];
   function finish(){
@@ -70,10 +69,10 @@
   var mid = ov.querySelector(".oi-mid"), bar = ov.querySelector(".oi-bar i"), th = ov.querySelector(".oi-tooth");
   anims.push(bar.animate([{transform:"scaleX(0)"},{transform:"scaleX(1)"}], {duration:1300, easing:"cubic-bezier(.6,0,.2,1)", fill:"forwards"}));
   anims.push(mid.animate([{opacity:0,transform:"translate(-50%,-46%)"},{opacity:1,transform:"translate(-50%,-50%)",offset:.15},{opacity:1,transform:"translate(-50%,-50%)",offset:.75},{opacity:0,transform:"translate(-50%,-58%) scale(.92)"}], {duration:1700, easing:"ease", fill:"forwards"}));
-  anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.75},{opacity:0,transform:"translate(-50%,-50%) scale(2.6)"}], {delay:1500, duration:2900, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
+  anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.75},{opacity:0,transform:"translate(-50%,-50%) scale(2.6)"}], {delay:1500, duration:2600, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
 
   var N = cards.length, half = N / 2;
-  var R = Math.min(W, H) * (small ? 0.34 : 0.3);
+  var R = small ? Math.min(W * 0.4, H * 0.3) : Math.min(H * 0.36, W * 0.3);
   var spread = Math.min(W * 0.86, (cw + 18) * half);
   var far = Math.hypot(W, H) * 0.75;
   cards.forEach(function(c, i){
@@ -95,5 +94,5 @@
       {opacity:0, transform:"translate(" + ox + "px," + oy + "px) rotate(" + (a1 + 90 + tilt * 3) + "deg) scale(2.2)"}
     ], {delay:1100 + j * 45, duration:3800, easing:"cubic-bezier(.55,0,.25,1)", fill:"forwards"}));
   });
-  setTimeout(finish, 1100 + half * 45 + 3800 - 550);
+  setTimeout(finish, 1100 + half * 45 + 3800 - 800);
 })();
