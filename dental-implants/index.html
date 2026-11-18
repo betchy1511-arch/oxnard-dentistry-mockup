@@ -953,8 +953,23 @@ a.float-cta{position:fixed}
 .js #insurance .ck path{stroke-dashoffset:0!important;transition:none!important}
 .js #insurance .ck circle{transform:none!important;opacity:1!important;transition:none!important}
 </style>
+<style id="why-stack">
+.ip-why .ip-why-grid{display:flex;flex-direction:column;gap:26px;margin-top:40px;padding-bottom:8px}
+.ip-why .ip-why-grid li{--i:0;position:sticky;top:calc(118px + var(--i) * 22px);margin-left:calc(var(--i) * 84px);min-height:0;grid-template-columns:64px minmax(0,1fr);gap:30px;align-items:start;
+  background:linear-gradient(160deg,#124247 0%,#0D3236 70%);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:28px;padding:42px 48px;box-shadow:0 -14px 34px rgba(8,38,42,.28)}
+.ip-why .ip-why-grid li:nth-child(2){--i:1}.ip-why .ip-why-grid li:nth-child(3){--i:2}.ip-why .ip-why-grid li:nth-child(4){--i:3}
+.ip-why .ip-why-grid .ip-wic{width:64px;height:64px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#9FE0D4}
+.ip-why .ip-why-grid .ip-wic svg{width:30px;height:30px}
+.ip-why .ip-why-grid h3{color:#fff;font-size:clamp(26px,2.7vw,42px);line-height:1.1;margin:6px 0 18px;white-space:normal}
+.ip-why .ip-why-grid p{color:#D5E9E5;font-size:18px;line-height:1.6;max-width:62ch}
+.ip-why .ip-why-grid a{color:#fff}
+@media (max-width:1100px){.ip-why .ip-why-grid li{margin-left:calc(var(--i) * 40px);padding:34px 36px}}
+@media (max-width:700px){.ip-why .ip-why-grid{gap:18px}.ip-why .ip-why-grid li{top:calc(92px + var(--i) * 14px);margin-left:calc(var(--i) * 12px);min-height:0;grid-template-columns:46px minmax(0,1fr);gap:16px;padding:24px 22px;border-radius:22px}
+.ip-why .ip-why-grid .ip-wic{width:46px;height:46px;border-radius:14px}.ip-why .ip-why-grid .ip-wic svg{width:22px;height:22px}.ip-why .ip-why-grid h3{font-size:24px;margin:2px 0 10px}.ip-why .ip-why-grid p{font-size:16px}}
+</style>
 </head>
 <body>
+<script src="../intro.js"></script>
 <a class="skip" href="#main" data-i18n="skip">Skip to main content</a>
 
 <div class="strip">
