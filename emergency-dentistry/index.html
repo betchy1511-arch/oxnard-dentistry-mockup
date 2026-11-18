@@ -991,6 +991,24 @@ a.float-cta{position:fixed}
 @media (max-width:700px){.ip-why .ip-why-grid{gap:18px}.ip-why .ip-why-grid li{top:calc(92px + var(--i) * 14px);margin-left:calc(var(--i) * 12px);min-height:0;grid-template-columns:46px minmax(0,1fr);gap:16px;padding:24px 22px;border-radius:22px}
 .ip-why .ip-why-grid .ip-wic{width:46px;height:46px;border-radius:14px}.ip-why .ip-why-grid .ip-wic svg{width:22px;height:22px}.ip-why .ip-why-grid h3{font-size:24px;margin:2px 0 10px}.ip-why .ip-why-grid p{font-size:16px}}
 </style>
+<style id="proc-list">
+.ip-fit-cards.proc{position:relative;display:block;margin-top:34px;border-top:1px solid rgba(255,255,255,.12)}
+.proc .ip-fc{display:grid;grid-template-columns:64px minmax(220px,330px) minmax(0,1fr);column-gap:28px;row-gap:4px;align-items:baseline;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.12);border-radius:0;padding:26px 8px;cursor:pointer;opacity:.32;transition:opacity .4s cubic-bezier(.22,1,.36,1)}
+.proc .ip-fc.is-active{opacity:1}
+.proc .ip-fc:last-of-type{border-bottom:0}
+.proc .ip-fc-top{display:contents}
+.proc .ip-fc-ic{display:none}
+.proc .ip-fc-n{grid-column:1;grid-row:1;margin:0;justify-self:center;font-size:17px;color:#fff;position:relative;z-index:1}
+.proc .ip-fc-k{grid-column:2;grid-row:1;font-size:clamp(24px,2.2vw,30px);line-height:1.15}
+.proc .ip-fc h3{grid-column:2;grid-row:2;margin:0;font-size:17px}
+.proc .ip-fc p{grid-column:3;grid-row:1 / span 2;align-self:center;font-size:17px;line-height:1.6;max-width:56ch}
+.proc-ring{position:absolute;left:0;top:0;width:58px;height:58px;pointer-events:none;color:#9FE0D4;transition:transform .55s cubic-bezier(.22,1,.36,1);z-index:0}
+.proc-ring path{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:190;stroke-dashoffset:0}
+.proc-ring.draw path{animation:procDraw .6s cubic-bezier(.4,0,.2,1)}
+@keyframes procDraw{from{stroke-dashoffset:190}to{stroke-dashoffset:0}}
+@media (max-width:899px){.proc .ip-fc{grid-template-columns:52px minmax(0,1fr);column-gap:16px;padding:22px 4px}.proc .ip-fc p{grid-column:2;grid-row:3;margin-top:6px;font-size:16px}.proc-ring{width:50px;height:50px}}
+@media (prefers-reduced-motion:reduce){.proc .ip-fc,.proc-ring{transition:none}.proc-ring.draw path{animation:none}}
+</style>
 </head>
 <body>
 <script src="../intro.js"></script>
@@ -1090,7 +1108,7 @@ a.float-cta{position:fixed}
   <span class="eyebrow" data-i18n="sp_29">In an emergency</span>
   <h2 data-i18n="sp_30" id="sp-feat-h">What To Do During a Dental Emergency</h2>
   <p class="lead ip-fit-intro" data-i18n="sp_31">Staying calm is key during a dental emergency. Follow these steps while you make your way to Oxnard Dentistry.</p>
-  <div class="ip-fit-cards"><div class="ip-fc"><div class="ip-fc-top"><span class="ip-fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span><span class="ip-fc-k" data-i18n="sp_19">Knocked-Out Tooth</span><span class="ip-fc-n" aria-hidden="true">01</span></div><h3 data-i18n="sp_20">Keep the Tooth Moist</h3><p data-i18n="sp_21">Place it back in its socket, in milk, or between your gums and cheek. Bring it with you to your appointment.</p></div><div class="ip-fc"><div class="ip-fc-top"><span class="ip-fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><span class="ip-fc-k" data-i18n="sp_22">Lacerations</span><span class="ip-fc-n" aria-hidden="true">02</span></div><h3 data-i18n="sp_23">Pressure and Ice</h3><p data-i18n="sp_24">Apply pressure to stop bleeding and use ice to reduce swelling and pain.</p></div><div class="ip-fc"><div class="ip-fc-top"><span class="ip-fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5c-2-2-6-2-7 1-1 4 1 7 2 11 .5 2 2 3 2.5 0L11 13h2l1.5 4c.5 3 2 2 2.5 0 1-4 3-7 2-11-1-3-5-3-7-1z"/></svg></span><span class="ip-fc-k" data-i18n="sp_25">Toothache</span><span class="ip-fc-n" aria-hidden="true">03</span></div><h3 data-i18n="sp_26">Rinse and Apply a Cold Compress</h3><p data-i18n="sp_27">For a toothache or cracked tooth, rinse your mouth with warm water and apply a cold compress to the affected area.</p></div></div>
+  <div class="ip-fit-cards proc"><div class="ip-fc"><div class="ip-fc-top"><span class="ip-fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span><span class="ip-fc-k" data-i18n="sp_19">Knocked-Out Tooth</span><span class="ip-fc-n" aria-hidden="true">01</span></div><h3 data-i18n="sp_20">Keep the Tooth Moist</h3><p data-i18n="sp_21">Place it back in its socket, in milk, or between your gums and cheek. Bring it with you to your appointment.</p></div><div class="ip-fc"><div class="ip-fc-top"><span class="ip-fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><span class="ip-fc-k" data-i18n="sp_22">Lacerations</span><span class="ip-fc-n" aria-hidden="true">02</span></div><h3 data-i18n="sp_23">Pressure and Ice</h3><p data-i18n="sp_24">Apply pressure to stop bleeding and use ice to reduce swelling and pain.</p></div><div class="ip-fc"><div class="ip-fc-top"><span class="ip-fc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5c-2-2-6-2-7 1-1 4 1 7 2 11 .5 2 2 3 2.5 0L11 13h2l1.5 4c.5 3 2 2 2.5 0 1-4 3-7 2-11-1-3-5-3-7-1z"/></svg></span><span class="ip-fc-k" data-i18n="sp_25">Toothache</span><span class="ip-fc-n" aria-hidden="true">03</span></div><h3 data-i18n="sp_26">Rinse and Apply a Cold Compress</h3><p data-i18n="sp_27">For a toothache or cracked tooth, rinse your mouth with warm water and apply a cold compress to the affected area.</p></div></div>
   <div class="ip-fit-foot2"><p data-i18n="sp_28">Head to Oxnard Dentistry as soon as possible for professional care.</p><div class="hero-actions on-dark"><a class="btn btn-book" href="https://www.zocdoc.com/practice/oxnard-dentistry-131565" target="_blank" rel="noopener"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span data-i18n="book">Book Online<span class="sr"> on Zocdoc, opens in a new tab</span></span></a><a class="btn btn-call" href="tel:+18056049999"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span data-i18n="call">Call (805) 604-9999</span></a></div></div>
 </section>
 <section class="panel rise ip-opts" aria-labelledby="sp-list-h">
@@ -1575,6 +1593,21 @@ t.forEach(function(b,i){b.addEventListener("click",function(){sel(b);});b.addEve
 <script>/* space-fix: equal title heights per row */
 (function(){function eq(){[['li:has(>.ip-node)','h3'],['.ip-fc','.ip-fc-top'],['.ip-fc','h3'],['.ip-why-grid li','h3']].forEach(function(d){var g=new Map();document.querySelectorAll(d[0]).forEach(function(it){var h=it.querySelector(d[1]);if(!h)return;var p=it.parentElement;if(!g.has(p))g.set(p,[]);g.get(p).push(h)});g.forEach(function(hs){hs.forEach(function(x){x.style.minHeight=''});if(innerWidth<700)return;var rows={};hs.forEach(function(x){var y=x.getBoundingClientRect().top+scrollY,t=Object.keys(rows).find(function(k){return Math.abs(k-y)<3});if(t===undefined)t=y;(rows[t]=rows[t]||[]).push(x)});Object.keys(rows).forEach(function(k){var r=rows[k];if(r.length<2)return;var m=Math.max.apply(null,r.map(function(x){return x.offsetHeight}));if(r.some(function(x){return x.offsetHeight<m}))r.forEach(function(x){x.style.minHeight=m+'px'})})})})}
 addEventListener('load',eq);addEventListener('resize',eq);if(document.fonts)document.fonts.ready.then(eq);new MutationObserver(function(){requestAnimationFrame(eq)}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});})();
+</script>
+<script id="proc-list-js">
+(function(){var L=document.querySelector('.ip-fit-cards.proc');if(!L)return;var rows=[].slice.call(L.querySelectorAll('.ip-fc'));if(!rows.length)return;
+var ring=document.createElementNS('http://www.w3.org/2000/svg','svg');ring.setAttribute('class','proc-ring');ring.setAttribute('viewBox','0 0 60 60');ring.setAttribute('aria-hidden','true');
+ring.innerHTML='<path d="M33 6c-14-2-27 8-27 23 0 14 11 25 25 25 13 0 23-10 23-23C54 17 44 7 30 7c-6 0-11 2-14 5"/>';L.appendChild(ring);
+var cur=-1,hover=false;
+function place(i,draw){var n=rows[i].querySelector('.ip-fc-n');if(!n)return;var lr=L.getBoundingClientRect(),nr=n.getBoundingClientRect(),s=ring.getBoundingClientRect().width||58;
+ring.style.transform='translate('+(nr.left-lr.left+nr.width/2-s/2)+'px,'+(nr.top-lr.top+nr.height/2-s/2)+'px)';
+if(draw){ring.classList.remove('draw');void ring.getBoundingClientRect();ring.classList.add('draw');}}
+function set(i){if(i===cur)return;cur=i;rows.forEach(function(r,k){r.classList.toggle('is-active',k===i);});place(i,true);}
+function byScroll(){if(hover)return;var mid=innerHeight*0.45,best=0,bd=1e9;rows.forEach(function(r,k){var b=r.getBoundingClientRect(),d=Math.abs(b.top+b.height/2-mid);if(d<bd){bd=d;best=k;}});set(best);}
+rows.forEach(function(r,k){r.setAttribute('tabindex','0');r.addEventListener('mouseenter',function(){hover=true;set(k);});r.addEventListener('focus',function(){set(k);});r.addEventListener('click',function(){set(k);});});
+L.addEventListener('mouseleave',function(){hover=false;byScroll();});
+addEventListener('scroll',byScroll,{passive:true});addEventListener('resize',function(){if(cur>=0)place(cur,false);});
+set(0);byScroll();if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(cur>=0)place(cur,false);});})();
 </script>
 </body>
 </html>
