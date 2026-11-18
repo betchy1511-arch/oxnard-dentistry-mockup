@@ -69,7 +69,7 @@
   var mid = ov.querySelector(".oi-mid"), bar = ov.querySelector(".oi-bar i"), th = ov.querySelector(".oi-tooth");
   anims.push(bar.animate([{transform:"scaleX(0)"},{transform:"scaleX(1)"}], {duration:1300, easing:"cubic-bezier(.6,0,.2,1)", fill:"forwards"}));
   anims.push(mid.animate([{opacity:0,transform:"translate(-50%,-46%)"},{opacity:1,transform:"translate(-50%,-50%)",offset:.15},{opacity:1,transform:"translate(-50%,-50%)",offset:.75},{opacity:0,transform:"translate(-50%,-58%) scale(.92)"}], {duration:1700, easing:"ease", fill:"forwards"}));
-  anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.75},{opacity:0,transform:"translate(-50%,-50%) scale(2.6)"}], {delay:1500, duration:2600, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
+  anims.push(th.animate([{opacity:0,transform:"translate(-50%,-50%) scale(.5) rotate(-20deg)"},{opacity:1,transform:"translate(-50%,-50%) scale(1) rotate(0)",offset:.25},{opacity:1,transform:"translate(-50%,-50%) scale(1.05)",offset:.75},{opacity:0,transform:"translate(-50%,-50%) scale(2.6)"}], {delay:1200, duration:2600, easing:"cubic-bezier(.5,0,.2,1)", fill:"forwards"}));
 
   var N = cards.length, half = N / 2;
   var R = small ? Math.min(W * 0.4, H * 0.3) : Math.min(H * 0.36, W * 0.3);
@@ -92,7 +92,7 @@
       {opacity:1, transform:"translate(" + rx + "px," + ry + "px) rotate(" + (a0 + 90) + "deg) scale(.85)", offset:.45},
       {opacity:1, transform:"translate(" + r2x + "px," + r2y + "px) rotate(" + (a1 + 90) + "deg) scale(.85)", offset:.8},
       {opacity:0, transform:"translate(" + ox + "px," + oy + "px) rotate(" + (a1 + 90 + tilt * 3) + "deg) scale(2.2)"}
-    ], {delay:1100 + j * 45, duration:3800, easing:"cubic-bezier(.55,0,.25,1)", fill:"forwards"}));
+    ], {delay:800 + j * 45, duration:3800, easing:"cubic-bezier(.55,0,.25,1)", fill:"forwards"}));
   });
-  setTimeout(finish, 1100 + half * 45 + 3800 - 800);
+  setTimeout(finish, 800 + half * 45 + 3800 - 800);
 })();
