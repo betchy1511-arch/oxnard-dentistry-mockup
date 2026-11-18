@@ -1,5 +1,5 @@
 /* Oxnard Dentistry entry intro (18 Nov 2026).
-   Plays once per visit (browser tab session), on whichever page the visitor lands on.
+   Plays on a visitor's first page of their first visit only (MODE below); never on later pages or later visits.
    MODE "session" = once per browser tab (a new tab or window = a new visit); MODE "first" = only a visitor's very first visit.
    ?intro=1 forces a replay (for review). Always skipped for prefers-reduced-motion. */
 (function(){
@@ -9,6 +9,7 @@
   var force = new URLSearchParams(q).get("intro") === "1";
   var store = null;
   try { store = MODE === "first" ? window.localStorage : window.sessionStorage; if (!force && store.getItem(KEY)) return; } catch(e) { store = null; }
+  if (!store && !force) return; /* storage blocked: never risk replaying on every page */
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (!document.body || !document.body.animate) return;
 
